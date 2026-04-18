@@ -1,0 +1,45 @@
+{
+  "schema": "applied-intelligence-theme-tokens-v1",
+  "themeName": "Applied Intelligence Premium Dark",
+  "designGoal": "Apple-like premium dashboard feel aligned with the Applied Intelligence website.",
+  "platformPriority": [
+    "iPad",
+    "iPhone"
+  ],
+  "colors": {
+    "bgBase": "#030a16",
+    "bgTop": "#071120",
+    "bgPanel": "#0b1628",
+    "bgPanelSoft": "#0f1b31",
+    "borderSoft": "rgba(151, 182, 255, 0.12)",
+    "borderBright": "rgba(123, 195, 255, 0.28)",
+    "textPrimary": "#eef4ff",
+    "textSecondary": "#b8c8e8",
+    "textMuted": "#8fa4c8",
+    "accentPrimary": "#78bbff",
+    "accentPrimarySoft": "rgba(120, 187, 255, 0.18)",
+    "accentSecondary": "#9dc9ff",
+    "accentPositive": "#79d2a7",
+    "accentWarm": "#d6a66b",
+    "accentDanger": "#ff8f8f",
+    "glassGlow": "rgba(120, 187, 255, 0.12)",
+    "shadow": "rgba(0, 0, 0, 0.34)"
+  },
+  "surface": {
+    "cardRadius": "22px",
+    "buttonRadius": "22px",
+    "panelRadius": "24px",
+    "primaryGlow": "0 0 36px rgba(120, 187, 255, 0.18)",
+    "panelShadow": "0 18px 42px rgba(0,0,0,0.34)",
+    "cardGradient": "linear-gradient(180deg, rgba(15,27,49,0.92), rgba(6,13,24,0.96))",
+    "panelGradient": "linear-gradient(180deg, rgba(10,19,34,0.96), rgba(5,10,20,0.98))"
+  },
+  "guidance": {
+    "background": "Reduce starry / noisy texture and favor deep navy gradients with subtle glow.",
+    "cards": "Use softer rounded cards with cleaner borders and calmer glow.",
+    "buttons": "Primary buttons should use the brighter website blue. Secondary buttons should stay darker and more muted.",
+    "typography": "Use strong headers with calmer gray-blue body text.",
+    "dashboard": "Preserve dashboard structure but make panels cleaner and easier to scan.",
+    "analytics": "Make analytics feel like a premium extension of the home dashboard, not a spreadsheet wall."
+  }
+}
