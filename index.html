@@ -21,25 +21,18 @@
     html,body{margin:0;min-height:100%;background-color:#020711}
     body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--text);background:radial-gradient(circle at 22% 18%, rgba(120,187,255,.10), transparent 0 26%),radial-gradient(circle at 82% 10%, rgba(120,187,255,.08), transparent 0 18%),linear-gradient(180deg, #071120 0%, #030a16 45%, #020711 100%);background-color:#020711;background-attachment:fixed;min-height:100dvh;padding-bottom:calc(118px + env(safe-area-inset-bottom, 0px))}
     .top{position:sticky;top:0;z-index:80;padding:calc(10px + env(safe-area-inset-top, 0px)) 16px 8px;backdrop-filter:blur(22px);background:linear-gradient(to bottom, rgba(4,10,20,.92), rgba(4,10,20,.58));border-bottom:1px solid rgba(151,182,255,.10);box-shadow:0 12px 36px rgba(0,0,0,.18)}
-    .topWrap{max-width:1360px;margin:0 auto}
-    .eyebrow{display:flex;align-items:center;gap:8px;color:var(--muted);font-size:11px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:6px}
-    .pulse{width:12px;height:12px;border-radius:999px;background:var(--green);box-shadow:0 0 16px rgba(74,216,149,.8)}
+    .topWrap{max-width:1360px;margin:0 auto}.eyebrow{display:flex;align-items:center;gap:8px;color:var(--muted);font-size:11px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:6px}.pulse{width:12px;height:12px;border-radius:999px;background:var(--green);box-shadow:0 0 16px rgba(74,216,149,.8)}
     h1{margin:0;font-size:32px;line-height:1;letter-spacing:-.04em}.sub{margin-top:4px;color:var(--muted);font-size:12px;line-height:1.35}
     .screen{display:none;padding:16px;animation:fade .18s ease}.screen.active{display:block}@keyframes fade{from{opacity:.72;transform:translateY(4px)}to{opacity:1;transform:none}}
     .glass{background:var(--glass);backdrop-filter:blur(18px);border:1px solid rgba(151,182,255,.10);border-radius:30px;box-shadow:var(--shadow)}
-    .panel{margin-top:14px;padding:16px}.hero{padding:18px 18px 20px;position:relative;overflow:hidden}
-    .heroGlow{position:absolute;right:-60px;bottom:-70px;width:240px;height:240px;background:radial-gradient(circle, rgba(120,187,255,.20), transparent 60%);filter:blur(18px);pointer-events:none}
-    .ring{display:none}
-    .ringInner{display:none}
+    .panel{margin-top:14px;padding:16px}.hero{padding:18px 18px 20px;position:relative;overflow:hidden}.heroGlow{position:absolute;right:-60px;bottom:-70px;width:240px;height:240px;background:radial-gradient(circle, rgba(120,187,255,.20), transparent 60%);filter:blur(18px);pointer-events:none}
     .hero p{margin:0;text-align:left;font-size:15px;line-height:1.5;color:#d9e8fb}.heroMini{margin-top:10px;color:var(--muted);font-size:11px;letter-spacing:.08em;text-transform:uppercase}
-    .sectionTitle{margin:0 0 6px;font-size:22px;letter-spacing:-.03em}.miniSub{color:var(--muted);font-size:13px;margin-bottom:12px}
+    .sectionTitle{margin:0 0 6px;font-size:22px;letter-spacing:-.03em}.miniSub{color:var(--muted);font-size:13px;margin-bottom:12px;line-height:1.4}
     .stats,.kpiGrid,.split,.homeTiles,.priorityCards,.workflowSteps,.agentGrid,.logList,.cmdList,.recentList,.filterGrid,.bars,.traceBody,.dashGrid{display:grid;gap:12px}
     .stats,.kpiGrid,.homeTiles{grid-template-columns:repeat(2,1fr)} .split{grid-template-columns:1fr 1fr} .traceBody,.dashGrid{grid-template-columns:1fr}
-    .tabRow{display:flex;flex-wrap:wrap;gap:12px}
-    .tabRow > *{flex:1 1 120px}
-    .stats{margin-top:16px}
+    .tabRow{display:flex;flex-wrap:wrap;gap:12px}.tabRow > *{flex:1 1 120px}.stats{margin-top:16px}
     .stat,.kpi{padding:14px 14px 12px;border-radius:22px;background:linear-gradient(180deg, rgba(15,27,49,.94), rgba(7,14,27,.98));border:1px solid rgba(151,182,255,.10);box-shadow:0 12px 28px rgba(0,0,0,.20)}
-    .statNum,.kpi .value{font-size:24px;font-weight:900;letter-spacing:-.04em}.statLabel,.kpi .label{color:var(--muted);font-size:12px;margin-top:4px}
+    .statNum,.kpi .value{font-size:24px;font-weight:900;letter-spacing:-.04em}.statLabel,.kpi .label{color:var(--muted);font-size:12px;margin-top:4px;line-height:1.35}
     .homeTile,.priorityCard,.step,.agentCard,.listItem,.chartBox,.recentItem,.card{padding:16px;border-radius:24px;background:var(--card);border:1px solid rgba(151,182,255,.10);box-shadow:var(--shadow)}
     .homeTile{position:relative;overflow:hidden;min-height:128px;cursor:pointer}.homeTile:before{content:"";position:absolute;inset:auto -28px -40px auto;width:120px;height:120px;border-radius:50%;opacity:.92;filter:blur(4px)}
     .homeTile.blue:before{background:radial-gradient(circle, var(--blue-soft), transparent 62%)} .homeTile.copper:before{background:radial-gradient(circle, var(--copper-soft), transparent 62%)} .homeTile.green:before{background:radial-gradient(circle, var(--green-soft), transparent 62%)} .homeTile.red:before{background:radial-gradient(circle, var(--red-soft), transparent 62%)} .homeTile.indigo:before{background:radial-gradient(circle, var(--indigo-soft), transparent 62%)} .homeTile.silver:before{background:radial-gradient(circle, var(--silver-soft), transparent 62%)}
@@ -49,13 +42,12 @@
     .btn.green{background:linear-gradient(180deg, rgba(121,210,167,.24), rgba(121,210,167,.12));color:var(--text);border:1px solid rgba(121,210,167,.24);box-shadow:none}
     .btn.red{background:linear-gradient(180deg, rgba(255,143,143,.18), rgba(255,143,143,.08));color:var(--text);border:1px solid rgba(255,143,143,.18);box-shadow:none}
     .btn.ghost{background:linear-gradient(180deg, rgba(10,19,34,.92), rgba(6,13,24,.98));color:#dcecff;border:1px solid rgba(151,182,255,.10);box-shadow:none}
-    .navBtn{border:none;cursor:pointer;padding:12px 10px;border-radius:18px;background:linear-gradient(180deg, rgba(10,19,34,.92), rgba(6,13,24,.98));color:#dcecff;border:1px solid rgba(151,182,255,.10);font-size:12px;font-weight:800;min-height:52px} .navBtn.active{background:linear-gradient(180deg, rgba(120,187,255,.20), rgba(120,187,255,.08));border-color:rgba(120,187,255,.30);color:#fff;box-shadow:0 0 22px rgba(120,187,255,.14)}
-    input,textarea{width:100%;background:linear-gradient(180deg, rgba(10,19,34,.92), rgba(6,13,24,.98));border:1px solid rgba(151,182,255,.10);border-radius:18px;color:var(--text);padding:14px;font:inherit}
-    textarea{min-height:120px;resize:vertical}
-    #batchInput{min-height:220px;font-size:16px;line-height:1.45}
-    .bottomBar{position:fixed;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom, 0px));z-index:90;display:grid;grid-template-columns:repeat(5,1fr);gap:10px;max-width:900px;margin:0 auto;padding:10px;border-radius:28px;background:linear-gradient(180deg, rgba(8,16,30,.92), rgba(4,10,20,.96));border:1px solid rgba(151,182,255,.10);box-shadow:0 18px 40px rgba(0,0,0,.42);backdrop-filter:blur(18px)}
-    .barRow{display:grid;grid-template-columns:110px 1fr 28px;gap:12px;align-items:center}
-    .barLabel{font-size:13px;color:#dcecff}.barTrack{height:12px;border-radius:999px;background:rgba(151,182,255,.10);overflow:hidden;border:1px solid rgba(151,182,255,.06)}.barFill{height:100%;border-radius:999px;background:linear-gradient(90deg,#79bfff,#d6a66b)}.barValue{font-size:12px;color:var(--muted);text-align:right}
+    .navBtn{border:none;cursor:pointer;padding:12px 10px;border-radius:18px;background:linear-gradient(180deg, rgba(10,19,34,.92), rgba(6,13,24,.98));color:#dcecff;border:1px solid rgba(151,182,255,.10);font-size:12px;font-weight:800;min-height:52px}.navBtn.active{background:linear-gradient(180deg, rgba(120,187,255,.20), rgba(120,187,255,.08));border-color:rgba(120,187,255,.30);color:#fff;box-shadow:0 0 22px rgba(120,187,255,.14)}
+    input,textarea{width:100%;background:linear-gradient(180deg, rgba(10,19,34,.92), rgba(6,13,24,.98));border:1px solid rgba(151,182,255,.10);border-radius:18px;color:var(--text);padding:14px;font:inherit}textarea{min-height:120px;resize:vertical}#batchInput{min-height:220px;font-size:16px;line-height:1.45}
+    .bottomBar{position:fixed;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom, 0px));z-index:90;display:grid;grid-template-columns:repeat(6,1fr);gap:10px;max-width:980px;margin:0 auto;padding:10px;border-radius:28px;background:linear-gradient(180deg, rgba(8,16,30,.92), rgba(4,10,20,.96));border:1px solid rgba(151,182,255,.10);box-shadow:0 18px 40px rgba(0,0,0,.42);backdrop-filter:blur(18px)}
+    .barRow{display:grid;grid-template-columns:110px 1fr 28px;gap:12px;align-items:center}.barLabel{font-size:13px;color:#dcecff}.barTrack{height:12px;border-radius:999px;background:rgba(151,182,255,.10);overflow:hidden;border:1px solid rgba(151,182,255,.06)}.barFill{height:100%;border-radius:999px;background:linear-gradient(90deg,#79bfff,#d6a66b)}.barValue{font-size:12px;color:var(--muted);text-align:right}
+    .gateOverlay{display:grid;gap:14px}.lockPill{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;background:rgba(120,187,255,.10);border:1px solid rgba(120,187,255,.18);color:#dcecff;font-size:12px;font-weight:700;letter-spacing:.04em;text-transform:uppercase}
+    .hidden{display:none!important}
     .install-app-btn{position:fixed;right:16px;bottom:calc(98px + env(safe-area-inset-bottom, 0px));z-index:1000;padding:10px 14px;border-radius:12px;border:1px solid rgba(255,255,255,0.15);background:rgba(8,17,31,0.92);color:#eef5ff;font:inherit;backdrop-filter:blur(8px);box-shadow:0 10px 24px rgba(0,0,0,0.28)}
     .ios-install-hint{position:fixed;left:16px;right:16px;bottom:calc(98px + env(safe-area-inset-bottom, 0px));z-index:999;padding:12px 14px;border-radius:14px;background:rgba(8,17,31,0.92);border:1px solid rgba(255,255,255,0.12);color:#eef5ff;backdrop-filter:blur(8px);box-shadow:0 10px 24px rgba(0,0,0,0.24)}
     @media (display-mode: standalone){.hide-when-installed{display:none!important}}
@@ -65,174 +57,40 @@
   <div class="top"><div class="topWrap"><div class="eyebrow"><span class="pulse"></span> Applied Intelligence Ecosystem</div><h1>Applied Intelligence</h1><div class="sub">V8 · iPad-first AI-Trace + CIS workflow</div></div></div>
   <div class="app">
     <section class="screen active" id="home">
-      <div class="glass hero">
-        <div class="heroGlow"></div>
-        <div class="heroTitle" style="font-size:22px;font-weight:900;letter-spacing:-.03em;margin-bottom:10px">Standardize to Optimize.</div>
-        <p>Turn real shop-floor problems into visible systems, practical decisions, and measurable improvement.</p>
-        <div class="heroMini">Version 8 · Premium Theme Pass</div>
-        <div class="stats">
-          <div class="stat"><div class="statNum" id="homeSaved">0</div><div class="statLabel">Saved Trace Entries</div></div>
-          <div class="stat"><div class="statNum" id="homeDept">—</div><div class="statLabel">Top Friction Dept.</div></div>
-          <div class="stat"><div class="statNum" id="homeKeyword">—</div><div class="statLabel">Top Issue Signal</div></div>
-          <div class="stat"><div class="statNum" id="homePart">—</div><div class="statLabel">Top Repeat Part</div></div>
-        </div>
-      </div>
-
-      <div class="homeTiles">
-        <div class="homeTile blue" onclick="goToScreen('trace')"><div class="tileIcon">🔎</div><div class="tileTitle">AI-Trace</div><div class="tileSub">Capture floor signals, batch-import entries, and expose the pattern fast.</div></div>
-        <div class="homeTile copper" onclick="goToScreen('cis')"><div class="tileIcon">🛡️</div><div class="tileTitle">AI-CIS</div><div class="tileSub">Quick-launch the improvement engine and move from pattern to correction.</div></div>
-        <div class="homeTile indigo" onclick="goToScreen('dashboard')"><div class="tileIcon">📊</div><div class="tileTitle">Dashboard</div><div class="tileSub">Priority-first daily briefing with bar-driven ranking and Open / Aging visibility.</div></div>
-        <div class="homeTile silver" onclick="goToScreen('more')"><div class="tileIcon">🔗</div><div class="tileTitle">AI-Connect</div><div class="tileSub">Connect departments, ownership, routing, and follow-through.</div></div>
-      </div>
+      <div class="glass hero"><div class="heroGlow"></div><div class="heroTitle" style="font-size:22px;font-weight:900;letter-spacing:-.03em;margin-bottom:10px">Standardize to Optimize.</div><p>Turn real shop-floor problems into visible systems, practical decisions, and measurable improvement.</p><div class="heroMini">Version 8 · Premium Theme Pass</div><div class="stats"><div class="stat"><div class="statNum" id="homeSaved">0</div><div class="statLabel">Saved Trace Entries</div></div><div class="stat"><div class="statNum" id="homeDept">—</div><div class="statLabel">Top Friction Dept.</div></div><div class="stat"><div class="statNum" id="homeKeyword">—</div><div class="statLabel">Top Issue Signal</div></div><div class="stat"><div class="statNum" id="homePart">—</div><div class="statLabel">Top Repeat Part</div></div></div></div>
+      <div class="homeTiles"><div class="homeTile blue" onclick="goToScreen('trace')"><div class="tileIcon">🔎</div><div class="tileTitle">AI-Trace</div><div class="tileSub">Capture floor signals, batch-import entries, and expose the pattern fast.</div></div><div class="homeTile copper" onclick="goToScreen('cis')"><div class="tileIcon">🛡️</div><div class="tileTitle">AI-CIS</div><div class="tileSub">Quick-launch the improvement engine and move from pattern to correction.</div></div><div class="homeTile indigo" onclick="goToScreen('dashboard')"><div class="tileIcon">📊</div><div class="tileTitle">Dashboard</div><div class="tileSub">Priority-first daily briefing with bar-driven ranking and Open / Aging visibility.</div></div><div class="homeTile silver" onclick="goToScreen('more')"><div class="tileIcon">🔗</div><div class="tileTitle">AI-Connect</div><div class="tileSub">Connect departments, ownership, routing, and follow-through.</div></div></div>
     </section>
 
     <section class="screen" id="trace">
-      <div class="glass panel">
-        <h2 class="sectionTitle">AI-Trace</h2>
-        <div class="miniSub">Responsive on phone and iPad. Single-entry, batch import, and AI-CIS handoff.</div>
-        <div class="tabRow">
-          <button class="navBtn active" id="traceSingleBtn" onclick="setTracePane('single')">Single Entry</button>
-          <button class="navBtn" id="traceBatchBtn" onclick="setTracePane('batch')">Batch Import</button>
-          <button class="navBtn" id="traceHandoffBtn" onclick="setTracePane('handoff')">CIS Handoff</button>
-        </div>
-        <div class="traceBody">
-          <div>
-            <div class="card" id="singlePane">
-              <div class="miniSub">Create one trace entry at a time.</div>
-              <div class="filterGrid" style="grid-template-columns:1fr 1fr">
-                <input id="dept" placeholder="Department" />
-                <input id="part" placeholder="Part Number" />
-                <input id="shift" placeholder="Team Member / Shift" />
-                <input id="pph" placeholder="Actual Parts Per Hour" />
-              </div>
-              <textarea id="keywords" placeholder="Keywords (comma-separated)"></textarea>
-              <div class="tabRow">
-                <button class="btn" onclick="saveSingleTrace()">Save Trace</button>
-                <button class="btn alt" onclick="clearSingleTrace()">Clear</button>
-              </div>
-              <div class="miniSub" id="singleStatus"></div>
-            </div>
-            <div class="card" id="batchPane" style="display:none">
-              <div class="miniSub">Paste batch entries in the working schema the validator expects.</div>
-              <textarea id="batchInput" placeholder="TRACE ENTRY 001&#10;Department: Welding&#10;Part Number: A-1001&#10;Team Member / Shift: Chris / 1st&#10;Actual Parts Per Hour: 18&#10;Keywords: Fixture, Fit-up, Rework"></textarea>
-              <div class="tabRow">
-                <button class="btn green" onclick="previewBatch()">Preview Batch</button>
-                <button class="btn ghost" onclick="loadSampleBatch()">Load Sample Batch</button>
-                <button class="btn alt" onclick="saveBatch()">Save Batch</button>
-                <button class="btn red" onclick="clearBatch()">Clear</button>
-              </div>
-              <div class="card" id="batchPreview">Batch preview will show here.</div>
-              <div class="card">
-                <h3 class="sectionTitle">Batch Import Validator</h3>
-                <div class="miniSub">Preview detected blocks before save so you can catch formatting issues early.</div>
-                <div class="split">
-                  <div class="kpi"><div class="value" id="detectedBlocks">0</div><div class="label">Detected Blocks</div></div>
-                  <div class="kpi"><div class="value" id="validEntries">0</div><div class="label">Valid Entries</div></div>
-                  <div class="kpi"><div class="value" id="skippedBlocks">0</div><div class="label">Skipped Blocks</div></div>
-                </div>
-              </div>
-            </div>
-            <div class="card" id="handoffPane" style="display:none">
-              <div class="miniSub">Convert the active trace pattern into a CIS handoff prompt.</div>
-              <textarea id="handoffText" placeholder="AI-CIS handoff will build here."></textarea>
-              <div class="tabRow">
-                <button class="btn" onclick="buildHandoff()">Build Handoff</button>
-                <button class="btn alt" onclick="copyHandoff()">Copy</button>
-              </div>
-            </div>
-          </div>
-          <div>
-            <div class="card">
-              <h3 class="sectionTitle">AI-Trace Commands</h3>
-              <div class="cmdList">
-                <div class="listItem">Run Trace Batch</div>
-                <div class="listItem">Run Trace Log</div>
-                <div class="listItem">Run Trace Summary</div>
-                <div class="listItem">Run Trace Pattern</div>
-              </div>
-            </div>
-            <div class="card">
-              <h3 class="sectionTitle">Recent Trace History</h3>
-              <div class="logList" id="traceLog"></div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <div class="glass panel"><h2 class="sectionTitle">AI-Trace</h2><div class="miniSub">Responsive on phone and iPad. Single-entry, batch import, and AI-CIS handoff.</div><div class="tabRow"><button class="navBtn active" id="traceSingleBtn" onclick="setTracePane('single')">Single Entry</button><button class="navBtn" id="traceBatchBtn" onclick="setTracePane('batch')">Batch Import</button><button class="navBtn" id="traceHandoffBtn" onclick="setTracePane('handoff')">CIS Handoff</button></div><div class="traceBody"><div><div class="card" id="singlePane"><div class="miniSub">Create one trace entry at a time.</div><div class="filterGrid" style="grid-template-columns:1fr 1fr"><input id="dept" placeholder="Department" /><input id="part" placeholder="Part Number" /><input id="shift" placeholder="Team Member / Shift" /><input id="pph" placeholder="Actual Parts Per Hour" /></div><textarea id="keywords" placeholder="Keywords (comma-separated)"></textarea><div class="tabRow"><button class="btn" onclick="saveSingleTrace()">Save Trace</button><button class="btn alt" onclick="clearSingleTrace()">Clear</button></div><div class="miniSub" id="singleStatus"></div></div><div class="card" id="batchPane" style="display:none"><div class="miniSub">Paste batch entries in the working schema the validator expects.</div><textarea id="batchInput" placeholder="TRACE ENTRY 001&#10;Department: Welding&#10;Part Number: A-1001&#10;Team Member / Shift: Chris / 1st&#10;Actual Parts Per Hour: 18&#10;Keywords: Fixture, Fit-up, Rework"></textarea><div class="tabRow"><button class="btn green" onclick="previewBatch()">Preview Batch</button><button class="btn ghost" onclick="loadSampleBatch()">Load Sample Batch</button><button class="btn alt" onclick="saveBatch()">Save Batch</button><button class="btn red" onclick="clearBatch()">Clear</button></div><div class="card" id="batchPreview">Batch preview will show here.</div><div class="card"><h3 class="sectionTitle">Batch Import Validator</h3><div class="miniSub">Preview detected blocks before save so you can catch formatting issues early.</div><div class="split"><div class="kpi"><div class="value" id="detectedBlocks">0</div><div class="label">Detected Blocks</div></div><div class="kpi"><div class="value" id="validEntries">0</div><div class="label">Valid Entries</div></div><div class="kpi"><div class="value" id="skippedBlocks">0</div><div class="label">Skipped Blocks</div></div></div></div></div><div class="card" id="handoffPane" style="display:none"><div class="miniSub">Convert the active trace pattern into a CIS handoff prompt.</div><textarea id="handoffText" placeholder="AI-CIS handoff will build here."></textarea><div class="tabRow"><button class="btn" onclick="buildHandoff()">Build Handoff</button><button class="btn alt" onclick="copyHandoff()">Copy</button></div></div></div><div><div class="card"><h3 class="sectionTitle">AI-Trace Commands</h3><div class="cmdList"><div class="listItem">Run Trace Batch</div><div class="listItem">Run Trace Log</div><div class="listItem">Run Trace Summary</div><div class="listItem">Run Trace Pattern</div></div></div><div class="card"><h3 class="sectionTitle">Recent Trace History</h3><div class="logList" id="traceLog"></div></div></div></div></div>
     </section>
 
     <section class="screen" id="cis">
-      <div class="glass panel">
-        <h2 class="sectionTitle">AI-CIS</h2>
-        <div class="miniSub">Structured improvement path. Formal escalation only when the issue deserves it.</div>
-        <div class="workflowSteps">
-          <div class="step"><div class="tileTitle">Lead</div><div class="tileSub">Logs the issue or marks it done.</div></div>
-          <div class="step"><div class="tileTitle">Supervisor</div><div class="tileSub">Verifies the work is actually complete.</div></div>
-          <div class="step"><div class="tileTitle">CIS</div><div class="tileSub">Clears dashboard visibility and governs long-term improvement follow-through.</div></div>
-        </div>
-      </div>
+      <div class="glass panel"><h2 class="sectionTitle">AI-CIS</h2><div class="miniSub">Structured improvement path. Formal escalation only when the issue deserves it.</div><div class="workflowSteps"><div class="step"><div class="tileTitle">Lead</div><div class="tileSub">Logs the issue or marks it done.</div></div><div class="step"><div class="tileTitle">Supervisor</div><div class="tileSub">Verifies the work is actually complete.</div></div><div class="step"><div class="tileTitle">CIS</div><div class="tileSub">Clears dashboard visibility and governs long-term improvement follow-through.</div></div></div></div>
     </section>
 
     <section class="screen" id="dashboard">
-      <div class="glass panel">
-        <h2 class="sectionTitle">Dashboard</h2>
-        <div class="miniSub">Day-first daily briefing with priority and visible breakdown bars.</div>
-        <div class="tabRow">
-          <button class="navBtn active">Day</button>
-          <button class="navBtn">Week</button>
-          <button class="navBtn">Month</button>
-          <button class="navBtn">Year</button>
-        </div>
-        <div class="kpiGrid">
-          <div class="kpi"><div class="label">Priority</div><div class="value" id="dashPriorityDept">—</div><div class="label" id="dashPriorityReason">Reason: —</div></div>
-          <div class="kpi"><div class="value" id="dashSaved">0</div><div class="label">Saved Entries</div></div>
-          <div class="kpi"><div class="value" id="dashDept">—</div><div class="label">Top Department</div></div>
-          <div class="kpi"><div class="value" id="dashKeyword">—</div><div class="label">Top Keyword</div></div>
-          <div class="kpi"><div class="value" id="dashPart">—</div><div class="label">Top Repeat Part</div></div>
-          <div class="kpi"><div class="value" id="dashFlow">—</div><div class="label">Top Flow-Risk Signal</div></div>
-        </div>
-        <div class="panel glass" style="margin-top:16px">
-          <h3 class="sectionTitle">Open / Aging</h3>
-          <div class="miniSub">Default shortlist under KPI cards. Toggle between High Priority and Oldest First.</div>
-          <div class="tabRow">
-            <button class="navBtn active">High Priority</button>
-            <button class="navBtn">Oldest First</button>
-          </div>
-          <div class="logList" id="openAgingList"></div>
-        </div>
-        <div class="dashGrid" style="margin-top:16px">
-          <div class="chartBox"><h3 class="sectionTitle">Issues by Department</h3><div class="bars" id="deptBars"></div></div>
-          <div class="chartBox"><h3 class="sectionTitle">Top Keywords</h3><div class="bars" id="keywordBars"></div></div>
-          <div class="chartBox"><h3 class="sectionTitle">Repeat Parts</h3><div class="bars" id="partBars"></div></div>
-        </div>
-      </div>
+      <div class="glass panel"><h2 class="sectionTitle">Dashboard</h2><div class="miniSub">Day-first daily briefing with priority and visible breakdown bars.</div><div class="tabRow"><button class="navBtn active">Day</button><button class="navBtn">Week</button><button class="navBtn">Month</button><button class="navBtn">Year</button></div><div class="kpiGrid"><div class="kpi"><div class="label">Priority</div><div class="value" id="dashPriorityDept">—</div><div class="label" id="dashPriorityReason">Reason: —</div></div><div class="kpi"><div class="value" id="dashSaved">0</div><div class="label">Saved Entries</div></div><div class="kpi"><div class="value" id="dashDept">—</div><div class="label">Top Department</div></div><div class="kpi"><div class="value" id="dashKeyword">—</div><div class="label">Top Keyword</div></div><div class="kpi"><div class="value" id="dashPart">—</div><div class="label">Top Repeat Part</div></div><div class="kpi"><div class="value" id="dashFlow">—</div><div class="label">Top Flow-Risk Signal</div></div></div><div class="panel glass" style="margin-top:16px"><h3 class="sectionTitle">Open / Aging</h3><div class="miniSub">Default shortlist under KPI cards. Toggle between High Priority and Oldest First.</div><div class="tabRow"><button class="navBtn active">High Priority</button><button class="navBtn">Oldest First</button></div><div class="logList" id="openAgingList"></div></div><div class="dashGrid" style="margin-top:16px"><div class="chartBox"><h3 class="sectionTitle">Issues by Department</h3><div class="bars" id="deptBars"></div></div><div class="chartBox"><h3 class="sectionTitle">Top Keywords</h3><div class="bars" id="keywordBars"></div></div><div class="chartBox"><h3 class="sectionTitle">Repeat Parts</h3><div class="bars" id="partBars"></div></div></div></div>
+    </section>
+
+    <section class="screen" id="analytics">
+      <div class="glass panel" id="analyticsGate"><h2 class="sectionTitle">Analytics</h2><div class="miniSub">Password-protected performance and accountability dashboard.</div><div class="gateOverlay"><span class="lockPill">🔒 Protected Area</span><div class="card"><div class="tileTitle">Analytics Access</div><div class="tileSub">Analytics is reserved for accountability, improvement leadership, and system performance review.</div></div><input id="analyticsPassword" type="password" placeholder="Enter analytics password" /><div class="tabRow"><button class="btn" onclick="unlockAnalytics()">Unlock Analytics</button><button class="btn ghost" onclick="clearAnalyticsGate()">Clear</button></div><div class="miniSub" id="analyticsGateStatus">Default demo password: analytics</div></div></div>
+      <div class="glass panel hidden" id="analyticsPanel"><h2 class="sectionTitle">Analytics</h2><div class="miniSub">Advanced dashboard focused on system performance first, accountability second.</div><div class="tabRow"><button class="navBtn">Day</button><button class="navBtn active">Week</button><button class="navBtn">Month</button><button class="navBtn">Year</button></div><div class="kpiGrid"><div class="kpi"><div class="label">Priority</div><div class="value" id="analyticsPriorityDept">Welding</div><div class="label" id="analyticsPriorityReason">Reason: 6 open / 3 repeat / 2 aging</div></div><div class="kpi"><div class="value" id="analyticsOpen">6</div><div class="label">Open Issues</div></div><div class="kpi"><div class="value" id="analyticsVerified">4</div><div class="label">Supervisor Verified</div></div><div class="kpi"><div class="value" id="analyticsCleared">3</div><div class="label">Cleared by CIS</div></div><div class="kpi"><div class="value" id="analyticsRepeat">3</div><div class="label">Repeat Issues</div></div><div class="kpi"><div class="value" id="analyticsAging">2</div><div class="label">Aging Open Issues</div></div></div><div class="dashGrid" style="margin-top:16px"><div class="chartBox"><h3 class="sectionTitle">System Performance</h3><div class="bars" id="analyticsSystemBars"></div></div><div class="chartBox"><h3 class="sectionTitle">Open / Aging</h3><div class="miniSub">Toggle between High Priority and Oldest First.</div><div class="tabRow"><button class="navBtn active">High Priority</button><button class="navBtn">Oldest First</button></div><div class="logList"><div class="listItem">Welding / Missing Secondary Tag / 6d</div><div class="listItem">Laser / Release Error / 4d</div><div class="listItem">Assembly / Hardware Delay / 3d</div></div></div><div class="chartBox"><h3 class="sectionTitle">Accountability</h3><div class="bars" id="analyticsAccountabilityBars"></div></div><div class="chartBox"><h3 class="sectionTitle">Improvement Focus</h3><div class="bars" id="analyticsFocusBars"></div></div></div><div class="tabRow" style="margin-top:16px"><button class="btn ghost" onclick="lockAnalytics()">Lock Analytics</button></div></div>
     </section>
 
     <section class="screen" id="more">
-      <div class="glass panel">
-        <h2 class="sectionTitle">More</h2>
-        <div class="agentGrid">
-          <div class="agentCard"><div class="tileTitle">Admin Mode</div><div class="tileSub">Company-level setup for role permissions, device rules, and authority flow.</div></div>
-          <div class="agentCard"><div class="tileTitle">Analytics</div><div class="tileSub">Password-protected. Advanced system-performance dashboard built for accountability and improvement focus.</div></div>
-          <div class="agentCard"><div class="tileTitle">AI-Connect</div><div class="tileSub">Placeholder source set is in the repo now. Operational UI is still future work.</div></div>
-          <div class="agentCard"><div class="tileTitle">Change Log</div><div class="tileSub">Root-level CHANGELOG.md is now the standard running update log.</div></div>
-        </div>
-      </div>
+      <div class="glass panel"><h2 class="sectionTitle">More</h2><div class="agentGrid"><div class="agentCard"><div class="tileTitle">Admin Mode</div><div class="tileSub">Company-level setup for role permissions, device rules, and authority flow.</div></div><div class="agentCard"><div class="tileTitle">Analytics</div><div class="tileSub">Password-protected. Advanced system-performance dashboard built for accountability and improvement focus.</div></div><div class="agentCard"><div class="tileTitle">AI-Connect</div><div class="tileSub">Placeholder source set is in the repo now. Operational UI is still future work.</div></div><div class="agentCard"><div class="tileTitle">Change Log</div><div class="tileSub">Root-level CHANGELOG.md is now the standard running update log.</div></div></div></div>
     </section>
   </div>
 
-  <div class="bottomBar">
-    <button class="navBtn active" onclick="goToScreen('home')">Home</button>
-    <button class="navBtn" onclick="goToScreen('trace')">Trace</button>
-    <button class="navBtn" onclick="goToScreen('cis')">CIS</button>
-    <button class="navBtn" onclick="goToScreen('dashboard')">Dashboard</button>
-    <button class="navBtn" onclick="goToScreen('more')">More</button>
-  </div>
+  <div class="bottomBar"><button class="navBtn active" onclick="goToScreen('home')">Home</button><button class="navBtn" onclick="goToScreen('trace')">Trace</button><button class="navBtn" onclick="goToScreen('cis')">CIS</button><button class="navBtn" onclick="goToScreen('dashboard')">Dashboard</button><button class="navBtn" onclick="goToScreen('analytics')">Analytics</button><button class="navBtn" onclick="goToScreen('more')">More</button></div>
 
   <script>
     const storeKey = 'applied_intelligence_trace_entries_v8';
     let activeTracePane = 'single';
     let lastPreview = [];
-    function goToScreen(id){document.querySelectorAll('.screen').forEach(el=>el.classList.remove('active'));const target=document.getElementById(id);if(target)target.classList.add('active');document.querySelectorAll('.bottomBar .navBtn').forEach(btn=>btn.classList.remove('active'));const labels=['home','trace','cis','dashboard','more'];const idx=labels.indexOf(id);if(idx>=0)document.querySelectorAll('.bottomBar .navBtn')[idx].classList.add('active');if(id==='dashboard'||id==='home'||id==='trace')refreshAll();}
+    let analyticsUnlocked = false;
+    function goToScreen(id){document.querySelectorAll('.screen').forEach(el=>el.classList.remove('active'));const target=document.getElementById(id);if(target)target.classList.add('active');document.querySelectorAll('.bottomBar .navBtn').forEach(btn=>btn.classList.remove('active'));const labels=['home','trace','cis','dashboard','analytics','more'];const idx=labels.indexOf(id);if(idx>=0)document.querySelectorAll('.bottomBar .navBtn')[idx].classList.add('active');if(id==='dashboard'||id==='home'||id==='trace'||id==='analytics')refreshAll();}
     function setTracePane(pane){activeTracePane=pane;document.getElementById('singlePane').style.display=pane==='single'?'block':'none';document.getElementById('batchPane').style.display=pane==='batch'?'block':'none';document.getElementById('handoffPane').style.display=pane==='handoff'?'block':'none';document.getElementById('traceSingleBtn').classList.toggle('active',pane==='single');document.getElementById('traceBatchBtn').classList.toggle('active',pane==='batch');document.getElementById('traceHandoffBtn').classList.toggle('active',pane==='handoff');}
     function readEntries(){try{return JSON.parse(localStorage.getItem(storeKey)||'[]');}catch{return [];}}
     function writeEntries(entries){localStorage.setItem(storeKey,JSON.stringify(entries));}
@@ -246,14 +104,19 @@
     function loadSampleBatch(){document.getElementById('batchInput').value=`TRACE ENTRY 001\nDepartment: Welding\nPart Number: A-1001\nTeam Member / Shift: Mike / 1st\nActual Parts Per Hour: 14\nKeywords: Fixture, Fit-up, Rework\n\nTRACE ENTRY 002\nDepartment: Laser\nPart Number: L-1002\nTeam Member / Shift: Alex / 1st\nActual Parts Per Hour: 20\nKeywords: Setup, Tooling, Prints\n\nTRACE ENTRY 003\nDepartment: Forming\nPart Number: F-3001\nTeam Member / Shift: Alex / 1st\nActual Parts Per Hour: 20\nKeywords: Setup, Tooling, Prints`;previewBatch();}
     function buildHandoff(){const entries=readEntries();const latest=entries.slice(-10);const deptCounts={};latest.forEach(e=>deptCounts[e.department]=(deptCounts[e.department]||0)+1);const topDept=Object.entries(deptCounts).sort((a,b)=>b[1]-a[1])[0]?.[0]||'UNKNOWN';document.getElementById('handoffText').value=`AI-CIS HANDOFF\n\nPattern Source: AI-Trace\nTop Department: ${topDept}\nRecent Entries Considered: ${latest.length}\n\nUse AI-CIS to determine whether this pattern deserves structured corrective action.`;}
     function copyHandoff(){const ta=document.getElementById('handoffText');ta.select();document.execCommand('copy');}
+    function unlockAnalytics(){const val=document.getElementById('analyticsPassword').value.trim();if(val==='analytics'){analyticsUnlocked=true;document.getElementById('analyticsGate').classList.add('hidden');document.getElementById('analyticsPanel').classList.remove('hidden');document.getElementById('analyticsGateStatus').textContent='';refreshAll();}else{document.getElementById('analyticsGateStatus').textContent='Incorrect password.';}}
+    function clearAnalyticsGate(){document.getElementById('analyticsPassword').value='';document.getElementById('analyticsGateStatus').textContent='Default demo password: analytics';}
+    function lockAnalytics(){analyticsUnlocked=false;document.getElementById('analyticsPanel').classList.add('hidden');document.getElementById('analyticsGate').classList.remove('hidden');document.getElementById('analyticsPassword').value='';document.getElementById('analyticsGateStatus').textContent='Default demo password: analytics';}
     function summarize(entries){const out={total:entries.length,dept:'—',keyword:'—',part:'—',flow:'—',priorityDept:'—',priorityReason:'Reason: 0 open / 0 repeat / 0 aging'};const deptCounts={},keywordCounts={},partCounts={};entries.forEach(e=>{deptCounts[e.department]=(deptCounts[e.department]||0)+1;partCounts[e.partNumber]=(partCounts[e.partNumber]||0)+1;(e.keywords||[]).forEach(k=>keywordCounts[k]=(keywordCounts[k]||0)+1);});const topDept=Object.entries(deptCounts).sort((a,b)=>b[1]-a[1])[0];const topKeyword=Object.entries(keywordCounts).sort((a,b)=>b[1]-a[1])[0];const topPart=Object.entries(partCounts).sort((a,b)=>b[1]-a[1])[0];out.dept=topDept?.[0]||'—';out.keyword=topKeyword?.[0]||'—';out.part=topPart?.[0]||'—';out.flow=topKeyword?.[0]||'—';out.priorityDept=out.dept;const open=entries.filter(e=>e.status==='OPEN').length;const repeat=topKeyword?.[1]||0;const aging=Math.min(entries.length,2);out.priorityReason=`Reason: ${open} open / ${repeat} repeat / ${aging} aging`;return{out,deptCounts,keywordCounts,partCounts};}
     function renderBars(targetId,counts,defaults){const root=document.getElementById(targetId);if(!root)return;let rows=Object.entries(counts).sort((a,b)=>b[1]-a[1]).slice(0,6);if(!rows.length){rows=defaults.map((name,i)=>[name,[5,4,3,2,2,1][i]||1]);}const max=rows[0][1]||1;root.innerHTML=rows.map(([name,val])=>`<div class="barRow"><div class="barLabel">${name}</div><div class="barTrack"><div class="barFill" style="width:${Math.max(18,Math.round((val/max)*100))}%"></div></div><div class="barValue">${Object.keys(counts).length?val:'—'}</div></div>`).join('');}
-    function refreshAll(){const entries=readEntries();const {out,deptCounts,keywordCounts,partCounts}=summarize(entries);const set=(id,value)=>{const el=document.getElementById(id);if(el)el.textContent=value;};set('homeSaved',out.total);set('homeDept',out.dept);set('homeKeyword',out.keyword);set('homePart',out.part);set('dashSaved',out.total);set('dashDept',out.dept);set('dashKeyword',out.keyword);set('dashPart',out.part);set('dashFlow',out.flow);set('dashPriorityDept',out.priorityDept);set('dashPriorityReason',out.priorityReason);renderBars('deptBars',deptCounts,['Welding','Laser','Machining','Assembly','Quality']);renderBars('keywordBars',keywordCounts,['Delay','Setup','Tags','Hardware','Verification']);renderBars('partBars',partCounts,['W-1001','L-1002','M-1003','A-1004','Q-1005']);const recent=entries.slice(-6).reverse();const traceLog=document.getElementById('traceLog');if(traceLog)traceLog.innerHTML=recent.length?recent.map(e=>`<div class="listItem">${e.department} / ${e.partNumber} / ${e.shift}</div>`).join(''):'<div class="miniSub">No trace history yet.</div>';const openAging=document.getElementById('openAgingList');if(openAging)openAging.innerHTML=recent.length?recent.map(e=>`<div class="listItem" onclick="goToScreen('trace')">${e.department} / ${e.partNumber} / 1d</div>`).join(''):'<div class="listItem">Welding / Missing Secondary Tag / 6d</div><div class="listItem">Laser / Release Error / 4d</div><div class="listItem">Assembly / Hardware Delay / 3d</div>';}
+    function refreshAll(){const entries=readEntries();const {out,deptCounts,keywordCounts,partCounts}=summarize(entries);const set=(id,value)=>{const el=document.getElementById(id);if(el)el.textContent=value;};set('homeSaved',out.total);set('homeDept',out.dept);set('homeKeyword',out.keyword);set('homePart',out.part);set('dashSaved',out.total);set('dashDept',out.dept);set('dashKeyword',out.keyword);set('dashPart',out.part);set('dashFlow',out.flow);set('dashPriorityDept',out.priorityDept);set('dashPriorityReason',out.priorityReason);
+      renderBars('deptBars',deptCounts,['Welding','Laser','Machining','Assembly','Quality']);renderBars('keywordBars',keywordCounts,['Delay','Setup','Tags','Hardware','Verification']);renderBars('partBars',partCounts,['W-1001','L-1002','M-1003','A-1004','Q-1005']);
+      const recent=entries.slice(-6).reverse();const traceLog=document.getElementById('traceLog');if(traceLog)traceLog.innerHTML=recent.length?recent.map(e=>`<div class="listItem">${e.department} / ${e.partNumber} / ${e.shift}</div>`).join(''):'<div class="miniSub">No trace history yet.</div>';const openAging=document.getElementById('openAgingList');if(openAging)openAging.innerHTML=recent.length?recent.map(e=>`<div class="listItem" onclick="goToScreen('trace')">${e.department} / ${e.partNumber} / 1d</div>`).join(''):'<div class="listItem">Welding / Missing Secondary Tag / 6d</div><div class="listItem">Laser / Release Error / 4d</div><div class="listItem">Assembly / Hardware Delay / 3d</div>';
+      if(analyticsUnlocked){set('analyticsPriorityDept', out.dept==='—'?'Welding':out.dept);set('analyticsPriorityReason', out.priorityReason==='Reason: 0 open / 0 repeat / 0 aging'?'Reason: 6 open / 3 repeat / 2 aging':out.priorityReason);set('analyticsOpen', entries.length?entries.filter(e=>e.status==='OPEN').length:6);set('analyticsVerified', entries.length?Math.max(1,Math.floor(entries.length/2)):4);set('analyticsCleared', entries.length?Math.max(1,Math.floor(entries.length/3)):3);set('analyticsRepeat', Object.keys(keywordCounts).length?Object.entries(keywordCounts).sort((a,b)=>b[1]-a[1])[0][1]:3);set('analyticsAging', entries.length?Math.min(entries.length,2):2);renderBars('analyticsSystemBars', deptCounts, ['Welding','Laser','Machining','Assembly','Quality']);renderBars('analyticsAccountabilityBars', entries.length?{'Supervisor Verified':Math.max(1,Math.floor(entries.length/2)),'Maintenance Closed':Math.max(1,Math.floor(entries.length/3)),'CIS Cleared':Math.max(1,Math.floor(entries.length/4))}:{'Supervisor Verified':5,'Maintenance Closed':4,'CIS Cleared':3}, ['Supervisor Verified','Maintenance Closed','CIS Cleared']);renderBars('analyticsFocusBars', keywordCounts, ['Delay','Setup','Tags','Verification','Release']);}}
     refreshAll();setTracePane('single');
   </script>
-
-<button class="install-app-btn hide-when-installed" data-install-app hidden>Install app</button>
-<div class="ios-install-hint hide-when-installed" data-ios-install-hint hidden>On iPhone or iPad: tap Share, then Add to Home Screen.</div>
-<script type="module" src="/applied-intelligence-app/install.js"></script>
+  <button class="install-app-btn hide-when-installed" data-install-app hidden>Install app</button>
+  <div class="ios-install-hint hide-when-installed" data-ios-install-hint hidden>On iPhone or iPad: tap Share, then Add to Home Screen.</div>
+  <script type="module" src="/applied-intelligence-app/install.js"></script>
 </body>
 </html>
