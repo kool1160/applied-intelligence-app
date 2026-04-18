@@ -1,0 +1,94 @@
+{
+  "schema": "applied-intelligence-core-metrics-v1",
+  "principle": "If a metric does not help prioritize action, it should not be a core metric.",
+  "dashboardPurpose": "The dashboard should highlight where improvement effort matters most, not simply show every number available.",
+  "dayOneQuestions": [
+    "Where are the most issues?",
+    "Which issues repeat the most?",
+    "What is still open?",
+    "What has been marked done but not verified?",
+    "What has been verified but not yet cleared by CIS?",
+    "Where should CIS focus first?"
+  ],
+  "dayOneMetrics": [
+    {
+      "name": "Total Trace Entries",
+      "key": "total_trace_entries",
+      "phase": "day_one",
+      "purpose": "Shows overall system activity and signal volume."
+    },
+    {
+      "name": "Open Issues",
+      "key": "open_issues",
+      "phase": "day_one",
+      "purpose": "Shows unresolved active issues requiring attention."
+    },
+    {
+      "name": "Marked Done",
+      "key": "marked_done",
+      "phase": "day_one",
+      "purpose": "Shows items marked done by operational users but not yet fully verified."
+    },
+    {
+      "name": "Supervisor Verified",
+      "key": "supervisor_verified",
+      "phase": "day_one",
+      "purpose": "Shows issues that have been checked and verified by a supervisor."
+    },
+    {
+      "name": "Cleared by CIS",
+      "key": "cleared_by_cis",
+      "phase": "day_one",
+      "purpose": "Shows items cleared from dashboard visibility through Continuous Improvement governance."
+    },
+    {
+      "name": "Entries by Department",
+      "key": "entries_by_department",
+      "phase": "day_one",
+      "purpose": "Highlights which departments generate the most trace activity."
+    },
+    {
+      "name": "Entries by Role",
+      "key": "entries_by_role",
+      "phase": "day_one",
+      "purpose": "Shows who is using the system and where trace entries are coming from."
+    },
+    {
+      "name": "Entries by Issue Type",
+      "key": "entries_by_issue_type",
+      "phase": "day_one",
+      "purpose": "Shows which problem categories are most common."
+    },
+    {
+      "name": "Repeat Issues",
+      "key": "repeat_issues",
+      "phase": "day_one",
+      "purpose": "Highlights recurring problems that may require CIS focus."
+    },
+    {
+      "name": "Aging Open Issues",
+      "key": "aging_open_issues",
+      "phase": "day_one",
+      "purpose": "Shows which unresolved issues have remained open the longest."
+    },
+    {
+      "name": "Top Department by Issue Count",
+      "key": "top_department_by_issue_count",
+      "phase": "day_one",
+      "purpose": "Identifies the highest-need department at a glance."
+    },
+    {
+      "name": "Top Repeat Issue Type",
+      "key": "top_repeat_issue_type",
+      "phase": "day_one",
+      "purpose": "Identifies the most common recurring issue for improvement prioritization."
+    }
+  ],
+  "phaseTwoExamples": [
+    "Advanced ROI rollups",
+    "Detailed user-vs-user comparisons",
+    "Export-heavy deep stats",
+    "Long trend analytics",
+    "Time-per-stage breakdowns"
+  ]
+}
