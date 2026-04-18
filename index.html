@@ -48,8 +48,15 @@
     .barRow{display:grid;grid-template-columns:110px 1fr 28px;gap:12px;align-items:center}.barLabel{font-size:13px;color:#dcecff}.barTrack{height:12px;border-radius:999px;background:rgba(151,182,255,.10);overflow:hidden;border:1px solid rgba(151,182,255,.06)}.barFill{height:100%;border-radius:999px;background:linear-gradient(90deg,#79bfff,#d6a66b)}.barValue{font-size:12px;color:var(--muted);text-align:right}
     .gateOverlay{display:grid;gap:14px}.lockPill{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;background:rgba(120,187,255,.10);border:1px solid rgba(120,187,255,.18);color:#dcecff;font-size:12px;font-weight:700;letter-spacing:.04em;text-transform:uppercase}
     .hidden{display:none!important}
+    .analytics-footer-tab{display:block}
+    .analytics-more-card{display:none}
     .install-app-btn{position:fixed;right:16px;bottom:calc(98px + env(safe-area-inset-bottom, 0px));z-index:1000;padding:10px 14px;border-radius:12px;border:1px solid rgba(255,255,255,0.15);background:rgba(8,17,31,0.92);color:#eef5ff;font:inherit;backdrop-filter:blur(8px);box-shadow:0 10px 24px rgba(0,0,0,0.28)}
     .ios-install-hint{position:fixed;left:16px;right:16px;bottom:calc(98px + env(safe-area-inset-bottom, 0px));z-index:999;padding:12px 14px;border-radius:14px;background:rgba(8,17,31,0.92);border:1px solid rgba(255,255,255,0.12);color:#eef5ff;backdrop-filter:blur(8px);box-shadow:0 10px 24px rgba(0,0,0,0.24)}
+    @media (max-width: 700px){
+      .bottomBar{grid-template-columns:repeat(5,1fr)}
+      .analytics-footer-tab{display:none}
+      .analytics-more-card{display:block}
+    }
     @media (display-mode: standalone){.hide-when-installed{display:none!important}}
   </style>
 </head>
@@ -79,18 +86,18 @@
     </section>
 
     <section class="screen" id="more">
-      <div class="glass panel"><h2 class="sectionTitle">More</h2><div class="agentGrid"><div class="agentCard"><div class="tileTitle">Admin Mode</div><div class="tileSub">Company-level setup for role permissions, device rules, and authority flow.</div></div><div class="agentCard"><div class="tileTitle">Analytics</div><div class="tileSub">Password-protected. Advanced system-performance dashboard built for accountability and improvement focus.</div></div><div class="agentCard"><div class="tileTitle">AI-Connect</div><div class="tileSub">Placeholder source set is in the repo now. Operational UI is still future work.</div></div><div class="agentCard"><div class="tileTitle">Change Log</div><div class="tileSub">Root-level CHANGELOG.md is now the standard running update log.</div></div></div></div>
+      <div class="glass panel"><h2 class="sectionTitle">More</h2><div class="agentGrid"><div class="agentCard"><div class="tileTitle">Admin Mode</div><div class="tileSub">Company-level setup for role permissions, device rules, and authority flow.</div></div><div class="agentCard analytics-more-card" onclick="goToScreen('analytics')"><div class="tileTitle">Analytics</div><div class="tileSub">Open the password-protected analytics dashboard from More on iPhone.</div></div><div class="agentCard"><div class="tileTitle">Analytics</div><div class="tileSub">Password-protected. Advanced system-performance dashboard built for accountability and improvement focus.</div></div><div class="agentCard"><div class="tileTitle">AI-Connect</div><div class="tileSub">Placeholder source set is in the repo now. Operational UI is still future work.</div></div><div class="agentCard"><div class="tileTitle">Change Log</div><div class="tileSub">Root-level CHANGELOG.md is now the standard running update log.</div></div></div></div>
     </section>
   </div>
 
-  <div class="bottomBar"><button class="navBtn active" onclick="goToScreen('home')">Home</button><button class="navBtn" onclick="goToScreen('trace')">Trace</button><button class="navBtn" onclick="goToScreen('cis')">CIS</button><button class="navBtn" onclick="goToScreen('dashboard')">Dashboard</button><button class="navBtn" onclick="goToScreen('analytics')">Analytics</button><button class="navBtn" onclick="goToScreen('more')">More</button></div>
+  <div class="bottomBar"><button class="navBtn active" onclick="goToScreen('home')">Home</button><button class="navBtn" onclick="goToScreen('trace')">Trace</button><button class="navBtn" onclick="goToScreen('cis')">CIS</button><button class="navBtn" onclick="goToScreen('dashboard')">Dashboard</button><button class="navBtn analytics-footer-tab" onclick="goToScreen('analytics')">Analytics</button><button class="navBtn" onclick="goToScreen('more')">More</button></div>
 
   <script>
     const storeKey = 'applied_intelligence_trace_entries_v8';
     let activeTracePane = 'single';
     let lastPreview = [];
     let analyticsUnlocked = false;
-    function goToScreen(id){document.querySelectorAll('.screen').forEach(el=>el.classList.remove('active'));const target=document.getElementById(id);if(target)target.classList.add('active');document.querySelectorAll('.bottomBar .navBtn').forEach(btn=>btn.classList.remove('active'));const labels=['home','trace','cis','dashboard','analytics','more'];const idx=labels.indexOf(id);if(idx>=0)document.querySelectorAll('.bottomBar .navBtn')[idx].classList.add('active');if(id==='dashboard'||id==='home'||id==='trace'||id==='analytics')refreshAll();}
+    function goToScreen(id){document.querySelectorAll('.screen').forEach(el=>el.classList.remove('active'));const target=document.getElementById(id);if(target)target.classList.add('active');document.querySelectorAll('.bottomBar .navBtn').forEach(btn=>btn.classList.remove('active'));const labels=['home','trace','cis','dashboard','analytics','more'];const idx=labels.indexOf(id);if(idx>=0){const tabs=document.querySelectorAll('.bottomBar .navBtn');if(tabs[idx])tabs[idx].classList.add('active');}if(id==='dashboard'||id==='home'||id==='trace'||id==='analytics')refreshAll();}
     function setTracePane(pane){activeTracePane=pane;document.getElementById('singlePane').style.display=pane==='single'?'block':'none';document.getElementById('batchPane').style.display=pane==='batch'?'block':'none';document.getElementById('handoffPane').style.display=pane==='handoff'?'block':'none';document.getElementById('traceSingleBtn').classList.toggle('active',pane==='single');document.getElementById('traceBatchBtn').classList.toggle('active',pane==='batch');document.getElementById('traceHandoffBtn').classList.toggle('active',pane==='handoff');}
     function readEntries(){try{return JSON.parse(localStorage.getItem(storeKey)||'[]');}catch{return [];}}
     function writeEntries(entries){localStorage.setItem(storeKey,JSON.stringify(entries));}
