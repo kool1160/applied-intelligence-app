@@ -25,6 +25,8 @@ All notable changes to the Applied Intelligence app should be documented in this
 - Defined dashboard direction with Day / Week / Month / Year tabbed time windows.
 - Defined Priority as the first KPI card using a combined score of repeat count, open count, and aging open count, while keeping contributing factors visible for testing.
 - Locked dashboard and analytics visual direction toward a premium iPad-first theme aligned with the Applied Intelligence website.
+- Applied the first premium dark UI theme pass to the live app shell, including updated visual styling for the background, cards, buttons, tabs, and dashboard panels.
+- Updated visible app wording from V7 to V8 in the live shell.
 
 ### Tested
 - Confirmed single trace entry flow works.
@@ -32,6 +34,6 @@ All notable changes to the Applied Intelligence app should be documented in this
 - Confirmed larger batch testing beyond 20 entries works, including successful 25-entry and 50-entry batch tests.
 
 ### Notes
-- Visible UI still contains some V7 wording and should be cleaned up in a future pass.
-- Theme alignment should be applied as a visual pass without changing role logic, workflow rules, metrics structure, or permissions model.
+- Theme alignment is still an early pass and should continue evolving toward closer parity with the Applied Intelligence website.
+- Future passes should refine Analytics, Open / Aging, and Priority presentation in the new visual language.
 - Future updates should be logged here as the standard running changelog.
