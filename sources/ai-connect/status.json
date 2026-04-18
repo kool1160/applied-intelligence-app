@@ -1,0 +1,11 @@
+{
+  "agent": "AI-Connect",
+  "status": "PLANNED_INCOMPLETE",
+  "enabled": false,
+  "interactive": false,
+  "visibleInApp": true,
+  "usable": false,
+  "phase": "source-structured-only",
+  "purpose": "Acts as the connective layer for communication, routing, permissions, alerts, notifications, handoffs, and cross-department coordination across the Applied Intelligence ecosystem.",
+  "warning": "AI-Connect is not complete and should not yet be treated as an active production agent."
+}
