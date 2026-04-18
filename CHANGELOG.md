@@ -15,6 +15,8 @@ All notable changes to the Applied Intelligence app should be documented in this
 - Added approved day-one status chain source under `sources/workflows/status-chain.md`.
 - Added AI-Trace live test checklist under `sources/tests/ai-trace-live-test-checklist.md`.
 - Added change-log tracking source under `sources/logs/app-change-log.md`.
+- Added theme alignment source spec under `sources/design/theme-alignment-v1.md`.
+- Added premium dark theme tokens under `sources/design/theme-tokens.json`.
 
 ### Changed
 - Revised role and authority model so Continuous Improvement is the normal trace-clearing authority.
@@ -22,6 +24,7 @@ All notable changes to the Applied Intelligence app should be documented in this
 - Defined company-level Admin Mode concept for company-specific permissions and governance.
 - Defined dashboard direction with Day / Week / Month / Year tabbed time windows.
 - Defined Priority as the first KPI card using a combined score of repeat count, open count, and aging open count, while keeping contributing factors visible for testing.
+- Locked dashboard and analytics visual direction toward a premium iPad-first theme aligned with the Applied Intelligence website.
 
 ### Tested
 - Confirmed single trace entry flow works.
@@ -30,4 +33,5 @@ All notable changes to the Applied Intelligence app should be documented in this
 
 ### Notes
 - Visible UI still contains some V7 wording and should be cleaned up in a future pass.
+- Theme alignment should be applied as a visual pass without changing role logic, workflow rules, metrics structure, or permissions model.
 - Future updates should be logged here as the standard running changelog.
