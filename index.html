@@ -17,9 +17,10 @@
       --silver:#d8e6ff; --silver-soft:rgba(216,230,255,.18); --shadow:0 18px 42px rgba(0,0,0,.34);
       --glass:linear-gradient(180deg, rgba(8,16,30,.86), rgba(4,10,20,.92)); --card:linear-gradient(180deg, rgba(15,27,49,.92), rgba(6,13,24,.96));
     }
-    *{box-sizing:border-box;-webkit-tap-highlight-color:transparent} html,body{margin:0;min-height:100%}
-    body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--text);background:radial-gradient(circle at 22% 18%, rgba(120,187,255,.10), transparent 0 26%),radial-gradient(circle at 82% 10%, rgba(120,187,255,.08), transparent 0 18%),linear-gradient(180deg, #071120 0%, #030a16 45%, #020711 100%);padding-bottom:108px}
-    .top{position:sticky;top:0;z-index:80;padding:10px 16px 8px;backdrop-filter:blur(22px);background:linear-gradient(to bottom, rgba(4,10,20,.92), rgba(4,10,20,.58));border-bottom:1px solid rgba(151,182,255,.10);box-shadow:0 12px 36px rgba(0,0,0,.18)}
+    *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+    html,body{margin:0;min-height:100%;background-color:#020711}
+    body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--text);background:radial-gradient(circle at 22% 18%, rgba(120,187,255,.10), transparent 0 26%),radial-gradient(circle at 82% 10%, rgba(120,187,255,.08), transparent 0 18%),linear-gradient(180deg, #071120 0%, #030a16 45%, #020711 100%);background-color:#020711;background-attachment:fixed;min-height:100dvh;padding-bottom:calc(118px + env(safe-area-inset-bottom, 0px))}
+    .top{position:sticky;top:0;z-index:80;padding:calc(10px + env(safe-area-inset-top, 0px)) 16px 8px;backdrop-filter:blur(22px);background:linear-gradient(to bottom, rgba(4,10,20,.92), rgba(4,10,20,.58));border-bottom:1px solid rgba(151,182,255,.10);box-shadow:0 12px 36px rgba(0,0,0,.18)}
     .topWrap{max-width:1360px;margin:0 auto}
     .eyebrow{display:flex;align-items:center;gap:8px;color:var(--muted);font-size:11px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:6px}
     .pulse{width:12px;height:12px;border-radius:999px;background:var(--green);box-shadow:0 0 16px rgba(74,216,149,.8)}
@@ -52,11 +53,11 @@
     input,textarea{width:100%;background:linear-gradient(180deg, rgba(10,19,34,.92), rgba(6,13,24,.98));border:1px solid rgba(151,182,255,.10);border-radius:18px;color:var(--text);padding:14px;font:inherit}
     textarea{min-height:120px;resize:vertical}
     #batchInput{min-height:220px;font-size:16px;line-height:1.45}
-    .bottomBar{position:fixed;left:12px;right:12px;bottom:12px;z-index:90;display:grid;grid-template-columns:repeat(5,1fr);gap:10px;max-width:900px;margin:0 auto;padding:10px;border-radius:28px;background:linear-gradient(180deg, rgba(8,16,30,.92), rgba(4,10,20,.96));border:1px solid rgba(151,182,255,.10);box-shadow:0 18px 40px rgba(0,0,0,.42);backdrop-filter:blur(18px)}
+    .bottomBar{position:fixed;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom, 0px));z-index:90;display:grid;grid-template-columns:repeat(5,1fr);gap:10px;max-width:900px;margin:0 auto;padding:10px;border-radius:28px;background:linear-gradient(180deg, rgba(8,16,30,.92), rgba(4,10,20,.96));border:1px solid rgba(151,182,255,.10);box-shadow:0 18px 40px rgba(0,0,0,.42);backdrop-filter:blur(18px)}
     .barRow{display:grid;grid-template-columns:110px 1fr 28px;gap:12px;align-items:center}
     .barLabel{font-size:13px;color:#dcecff}.barTrack{height:12px;border-radius:999px;background:rgba(151,182,255,.10);overflow:hidden;border:1px solid rgba(151,182,255,.06)}.barFill{height:100%;border-radius:999px;background:linear-gradient(90deg,#79bfff,#d6a66b)}.barValue{font-size:12px;color:var(--muted);text-align:right}
-    .install-app-btn{position:fixed;right:16px;bottom:98px;z-index:1000;padding:10px 14px;border-radius:12px;border:1px solid rgba(255,255,255,0.15);background:rgba(8,17,31,0.92);color:#eef5ff;font:inherit;backdrop-filter:blur(8px);box-shadow:0 10px 24px rgba(0,0,0,0.28)}
-    .ios-install-hint{position:fixed;left:16px;right:16px;bottom:98px;z-index:999;padding:12px 14px;border-radius:14px;background:rgba(8,17,31,0.92);border:1px solid rgba(255,255,255,0.12);color:#eef5ff;backdrop-filter:blur(8px);box-shadow:0 10px 24px rgba(0,0,0,0.24)}
+    .install-app-btn{position:fixed;right:16px;bottom:calc(98px + env(safe-area-inset-bottom, 0px));z-index:1000;padding:10px 14px;border-radius:12px;border:1px solid rgba(255,255,255,0.15);background:rgba(8,17,31,0.92);color:#eef5ff;font:inherit;backdrop-filter:blur(8px);box-shadow:0 10px 24px rgba(0,0,0,0.28)}
+    .ios-install-hint{position:fixed;left:16px;right:16px;bottom:calc(98px + env(safe-area-inset-bottom, 0px));z-index:999;padding:12px 14px;border-radius:14px;background:rgba(8,17,31,0.92);border:1px solid rgba(255,255,255,0.12);color:#eef5ff;backdrop-filter:blur(8px);box-shadow:0 10px 24px rgba(0,0,0,0.24)}
     @media (display-mode: standalone){.hide-when-installed{display:none!important}}
   </style>
 </head>
