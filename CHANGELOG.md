@@ -27,6 +27,7 @@ All notable changes to the Applied Intelligence app should be documented in this
 - Locked dashboard and analytics visual direction toward a premium iPad-first theme aligned with the Applied Intelligence website.
 - Applied the first premium dark UI theme pass to the live app shell, including updated visual styling for the background, cards, buttons, tabs, and dashboard panels.
 - Updated visible app wording from V7 to V8 in the live shell.
+- Refined the live shell after hands-on feedback by shrinking the header, shortening header copy, removing the oversized hero ring treatment, centering the bottom navigation, enlarging the batch-entry area, and restoring bar-style placeholders for dashboard sections before real data is loaded.
 
 ### Tested
 - Confirmed single trace entry flow works.
