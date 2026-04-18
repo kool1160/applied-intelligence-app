@@ -18,22 +18,25 @@
       --glass:linear-gradient(180deg, rgba(8,16,30,.86), rgba(4,10,20,.92)); --card:linear-gradient(180deg, rgba(15,27,49,.92), rgba(6,13,24,.96));
     }
     *{box-sizing:border-box;-webkit-tap-highlight-color:transparent} html,body{margin:0;min-height:100%}
-    body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--text);background:radial-gradient(circle at 22% 18%, rgba(120,187,255,.10), transparent 0 26%),radial-gradient(circle at 82% 10%, rgba(120,187,255,.08), transparent 0 18%),linear-gradient(180deg, #071120 0%, #030a16 45%, #020711 100%);padding-bottom:88px}
-    .top{position:sticky;top:0;z-index:80;padding:16px 16px 12px;backdrop-filter:blur(22px);background:linear-gradient(to bottom, rgba(4,10,20,.92), rgba(4,10,20,.58));border-bottom:1px solid rgba(151,182,255,.10);box-shadow:0 12px 36px rgba(0,0,0,.18)}
+    body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--text);background:radial-gradient(circle at 22% 18%, rgba(120,187,255,.10), transparent 0 26%),radial-gradient(circle at 82% 10%, rgba(120,187,255,.08), transparent 0 18%),linear-gradient(180deg, #071120 0%, #030a16 45%, #020711 100%);padding-bottom:108px}
+    .top{position:sticky;top:0;z-index:80;padding:10px 16px 8px;backdrop-filter:blur(22px);background:linear-gradient(to bottom, rgba(4,10,20,.92), rgba(4,10,20,.58));border-bottom:1px solid rgba(151,182,255,.10);box-shadow:0 12px 36px rgba(0,0,0,.18)}
     .topWrap{max-width:1360px;margin:0 auto}
-    .eyebrow{display:flex;align-items:center;gap:8px;color:var(--muted);font-size:11px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:8px}
+    .eyebrow{display:flex;align-items:center;gap:8px;color:var(--muted);font-size:11px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:6px}
     .pulse{width:12px;height:12px;border-radius:999px;background:var(--green);box-shadow:0 0 16px rgba(74,216,149,.8)}
-    h1{margin:0;font-size:34px;line-height:1;letter-spacing:-.04em}.sub{margin-top:8px;color:var(--muted);font-size:14px;line-height:1.45}
+    h1{margin:0;font-size:32px;line-height:1;letter-spacing:-.04em}.sub{margin-top:4px;color:var(--muted);font-size:12px;line-height:1.35}
     .screen{display:none;padding:16px;animation:fade .18s ease}.screen.active{display:block}@keyframes fade{from{opacity:.72;transform:translateY(4px)}to{opacity:1;transform:none}}
     .glass{background:var(--glass);backdrop-filter:blur(18px);border:1px solid rgba(151,182,255,.10);border-radius:30px;box-shadow:var(--shadow)}
     .panel{margin-top:14px;padding:16px}.hero{padding:18px 18px 20px;position:relative;overflow:hidden}
     .heroGlow{position:absolute;right:-60px;bottom:-70px;width:240px;height:240px;background:radial-gradient(circle, rgba(120,187,255,.20), transparent 60%);filter:blur(18px);pointer-events:none}
-    .ring{width:172px;height:172px;border-radius:50%;margin:8px auto 16px;padding:10px;background:conic-gradient(from 225deg, #dbeaff, #7dbfff, #b7d9ff, #d6a66b, #dbeaff);box-shadow:0 0 34px rgba(120,187,255,.18), inset 0 0 18px rgba(255,255,255,.12)}
-    .ringInner{width:100%;height:100%;border-radius:50%;display:flex;align-items:center;justify-content:center;text-align:center;background:radial-gradient(circle at 50% 38%, #10203c 0%, #091423 62%, #050c17 100%);border:1px solid rgba(151,182,255,.14);font-weight:900;font-size:19px;line-height:1.05;letter-spacing:-.04em;text-shadow:0 0 18px rgba(120,187,255,.20)}
-    .hero p{margin:0;text-align:center;font-size:15px;line-height:1.5;color:#d9e8fb}.heroMini{margin-top:12px;text-align:center;color:var(--muted);font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+    .ring{display:none}
+    .ringInner{display:none}
+    .hero p{margin:0;text-align:left;font-size:15px;line-height:1.5;color:#d9e8fb}.heroMini{margin-top:10px;color:var(--muted);font-size:11px;letter-spacing:.08em;text-transform:uppercase}
     .sectionTitle{margin:0 0 6px;font-size:22px;letter-spacing:-.03em}.miniSub{color:var(--muted);font-size:13px;margin-bottom:12px}
-    .stats,.kpiGrid,.split,.homeTiles,.priorityCards,.workflowSteps,.agentGrid,.logList,.cmdList,.recentList,.filterGrid,.tabRow,.bars,.traceBody,.dashGrid{display:grid;gap:12px}
+    .stats,.kpiGrid,.split,.homeTiles,.priorityCards,.workflowSteps,.agentGrid,.logList,.cmdList,.recentList,.filterGrid,.bars,.traceBody,.dashGrid{display:grid;gap:12px}
     .stats,.kpiGrid,.homeTiles{grid-template-columns:repeat(2,1fr)} .split{grid-template-columns:1fr 1fr} .traceBody,.dashGrid{grid-template-columns:1fr}
+    .tabRow{display:flex;flex-wrap:wrap;gap:12px}
+    .tabRow > *{flex:1 1 120px}
+    .stats{margin-top:16px}
     .stat,.kpi{padding:14px 14px 12px;border-radius:22px;background:linear-gradient(180deg, rgba(15,27,49,.94), rgba(7,14,27,.98));border:1px solid rgba(151,182,255,.10);box-shadow:0 12px 28px rgba(0,0,0,.20)}
     .statNum,.kpi .value{font-size:24px;font-weight:900;letter-spacing:-.04em}.statLabel,.kpi .label{color:var(--muted);font-size:12px;margin-top:4px}
     .homeTile,.priorityCard,.step,.agentCard,.listItem,.chartBox,.recentItem,.card{padding:16px;border-radius:24px;background:var(--card);border:1px solid rgba(151,182,255,.10);box-shadow:var(--shadow)}
@@ -45,17 +48,25 @@
     .btn.green{background:linear-gradient(180deg, rgba(121,210,167,.24), rgba(121,210,167,.12));color:var(--text);border:1px solid rgba(121,210,167,.24);box-shadow:none}
     .btn.red{background:linear-gradient(180deg, rgba(255,143,143,.18), rgba(255,143,143,.08));color:var(--text);border:1px solid rgba(255,143,143,.18);box-shadow:none}
     .btn.ghost{background:linear-gradient(180deg, rgba(10,19,34,.92), rgba(6,13,24,.98));color:#dcecff;border:1px solid rgba(151,182,255,.10);box-shadow:none}
-    .navBtn{border:none;cursor:pointer;padding:11px 6px;border-radius:18px;background:linear-gradient(180deg, rgba(10,19,34,.92), rgba(6,13,24,.98));color:#dcecff;border:1px solid rgba(151,182,255,.10);font-size:11px;font-weight:800} .navBtn.active{background:linear-gradient(180deg, rgba(120,187,255,.20), rgba(120,187,255,.08));border-color:rgba(120,187,255,.30);color:#fff;box-shadow:0 0 22px rgba(120,187,255,.14)}
-    .sheet{background:linear-gradient(180deg, rgba(10,19,34,.98), rgba(5,10,20,1));border-top-left-radius:30px;border-top-right-radius:30px;padding:18px 16px 22px;border:1px solid rgba(151,182,255,.10);box-shadow:0 -24px 60px rgba(0,0,0,.5)}
+    .navBtn{border:none;cursor:pointer;padding:12px 10px;border-radius:18px;background:linear-gradient(180deg, rgba(10,19,34,.92), rgba(6,13,24,.98));color:#dcecff;border:1px solid rgba(151,182,255,.10);font-size:12px;font-weight:800;min-height:52px} .navBtn.active{background:linear-gradient(180deg, rgba(120,187,255,.20), rgba(120,187,255,.08));border-color:rgba(120,187,255,.30);color:#fff;box-shadow:0 0 22px rgba(120,187,255,.14)}
+    input,textarea{width:100%;background:linear-gradient(180deg, rgba(10,19,34,.92), rgba(6,13,24,.98));border:1px solid rgba(151,182,255,.10);border-radius:18px;color:var(--text);padding:14px;font:inherit}
+    textarea{min-height:120px;resize:vertical}
+    #batchInput{min-height:220px;font-size:16px;line-height:1.45}
+    .bottomBar{position:fixed;left:12px;right:12px;bottom:12px;z-index:90;display:grid;grid-template-columns:repeat(5,1fr);gap:10px;max-width:900px;margin:0 auto;padding:10px;border-radius:28px;background:linear-gradient(180deg, rgba(8,16,30,.92), rgba(4,10,20,.96));border:1px solid rgba(151,182,255,.10);box-shadow:0 18px 40px rgba(0,0,0,.42);backdrop-filter:blur(18px)}
+    .barRow{display:grid;grid-template-columns:110px 1fr 28px;gap:12px;align-items:center}
+    .barLabel{font-size:13px;color:#dcecff}.barTrack{height:12px;border-radius:999px;background:rgba(151,182,255,.10);overflow:hidden;border:1px solid rgba(151,182,255,.06)}.barFill{height:100%;border-radius:999px;background:linear-gradient(90deg,#79bfff,#d6a66b)}.barValue{font-size:12px;color:var(--muted);text-align:right}
+    .install-app-btn{position:fixed;right:16px;bottom:98px;z-index:1000;padding:10px 14px;border-radius:12px;border:1px solid rgba(255,255,255,0.15);background:rgba(8,17,31,0.92);color:#eef5ff;font:inherit;backdrop-filter:blur(8px);box-shadow:0 10px 24px rgba(0,0,0,0.28)}
+    .ios-install-hint{position:fixed;left:16px;right:16px;bottom:98px;z-index:999;padding:12px 14px;border-radius:14px;background:rgba(8,17,31,0.92);border:1px solid rgba(255,255,255,0.12);color:#eef5ff;backdrop-filter:blur(8px);box-shadow:0 10px 24px rgba(0,0,0,0.24)}
+    @media (display-mode: standalone){.hide-when-installed{display:none!important}}
   </style>
 </head>
 <body>
-  <div class="top"><div class="topWrap"><div class="eyebrow"><span class="pulse"></span> Applied Intelligence Ecosystem</div><h1>Applied Intelligence</h1><div class="sub">V8 responsive build. Better batch import validation, iPad support, premium dark theme alignment, and landscape + portrait layouts.</div></div></div>
+  <div class="top"><div class="topWrap"><div class="eyebrow"><span class="pulse"></span> Applied Intelligence Ecosystem</div><h1>Applied Intelligence</h1><div class="sub">V8 · iPad-first AI-Trace + CIS workflow</div></div></div>
   <div class="app">
     <section class="screen active" id="home">
       <div class="glass hero">
         <div class="heroGlow"></div>
-        <div class="ring"><div class="ringInner">APPLIED<br>INTELLIGENCE</div></div>
+        <div class="heroTitle" style="font-size:22px;font-weight:900;letter-spacing:-.03em;margin-bottom:10px">Standardize to Optimize.</div>
         <p>Turn real shop-floor problems into visible systems, practical decisions, and measurable improvement.</p>
         <div class="heroMini">Version 8 · Premium Theme Pass</div>
         <div class="stats">
@@ -69,26 +80,8 @@
       <div class="homeTiles">
         <div class="homeTile blue" onclick="goToScreen('trace')"><div class="tileIcon">🔎</div><div class="tileTitle">AI-Trace</div><div class="tileSub">Capture floor signals, batch-import entries, and expose the pattern fast.</div></div>
         <div class="homeTile copper" onclick="goToScreen('cis')"><div class="tileIcon">🛡️</div><div class="tileTitle">AI-CIS</div><div class="tileSub">Quick-launch the improvement engine and move from pattern to correction.</div></div>
-        <div class="homeTile indigo" onclick="openAgent('aicase')"><div class="tileIcon">📄</div><div class="tileTitle">AI-Case</div><div class="tileSub">Turn solved problems into strong portfolio and interview stories.</div></div>
-        <div class="homeTile green" onclick="openAgent('airoi')"><div class="tileIcon">📈</div><div class="tileTitle">AI-ROI</div><div class="tileSub">Build equipment buying cases and conservative financial justification.</div></div>
-        <div class="homeTile red" onclick="openAgent('airma')"><div class="tileIcon">⚠️</div><div class="tileTitle">AI-RMA</div><div class="tileSub">Contain risk, returns, and corrective flow with tighter structure.</div></div>
-        <div class="homeTile silver" onclick="openAgent('aiconnect')"><div class="tileIcon">🔗</div><div class="tileTitle">AI-Connect</div><div class="tileSub">Connect departments, ownership, routing, and follow-through.</div></div>
-      </div>
-
-      <div class="panel glass">
-        <h2 class="sectionTitle">Priority View</h2>
-        <div class="miniSub">The live dashboard should eventually lead with priority, then keep Open / Aging visible underneath.</div>
-        <div class="priorityCards">
-          <div class="priorityCard"><div class="tileTitle">Priority</div><div class="tileSub">Priority: Welding<br>Reason: 6 open / 3 repeat / 2 aging</div></div>
-          <div class="priorityCard"><div class="tileTitle">Open / Aging</div><div class="tileSub">Shortlist sits below KPI cards with a toggle for High Priority / Oldest First.</div></div>
-          <div class="priorityCard"><div class="tileTitle">Analytics</div><div class="tileSub">Analytics remains password-protected and focused on system performance first.</div></div>
-        </div>
-      </div>
-
-      <div class="panel glass">
-        <h2 class="sectionTitle">Recent Activity</h2>
-        <div class="miniSub">Quick snapshot of recent trace-driven movement.</div>
-        <div class="recentList" id="recentHome"></div>
+        <div class="homeTile indigo" onclick="goToScreen('dashboard')"><div class="tileIcon">📊</div><div class="tileTitle">Dashboard</div><div class="tileSub">Priority-first daily briefing with bar-driven ranking and Open / Aging visibility.</div></div>
+        <div class="homeTile silver" onclick="goToScreen('more')"><div class="tileIcon">🔗</div><div class="tileTitle">AI-Connect</div><div class="tileSub">Connect departments, ownership, routing, and follow-through.</div></div>
       </div>
     </section>
 
@@ -105,7 +98,7 @@
           <div>
             <div class="card" id="singlePane">
               <div class="miniSub">Create one trace entry at a time.</div>
-              <div class="filterGrid">
+              <div class="filterGrid" style="grid-template-columns:1fr 1fr">
                 <input id="dept" placeholder="Department" />
                 <input id="part" placeholder="Part Number" />
                 <input id="shift" placeholder="Team Member / Shift" />
@@ -181,7 +174,7 @@
     <section class="screen" id="dashboard">
       <div class="glass panel">
         <h2 class="sectionTitle">Dashboard</h2>
-        <div class="miniSub">Works in portrait and landscape, expands cleanly on iPad, and now follows the premium dark theme direction.</div>
+        <div class="miniSub">Day-first daily briefing with priority and visible breakdown bars.</div>
         <div class="tabRow">
           <button class="navBtn active">Day</button>
           <button class="navBtn">Week</button>
@@ -236,220 +229,30 @@
 
   <script>
     const storeKey = 'applied_intelligence_trace_entries_v8';
-    let activeScreen = 'home';
     let activeTracePane = 'single';
     let lastPreview = [];
-
-    function goToScreen(id){
-      document.querySelectorAll('.screen').forEach(el => el.classList.remove('active'));
-      const target = document.getElementById(id);
-      if(target) target.classList.add('active');
-      document.querySelectorAll('.bottomBar .navBtn').forEach(btn => btn.classList.remove('active'));
-      const labels = ['home','trace','cis','dashboard','more'];
-      const idx = labels.indexOf(id);
-      if(idx >= 0) document.querySelectorAll('.bottomBar .navBtn')[idx].classList.add('active');
-      activeScreen = id;
-      if(id === 'dashboard' || id === 'home' || id === 'trace') refreshAll();
-    }
-
-    function setTracePane(pane){
-      activeTracePane = pane;
-      document.getElementById('singlePane').style.display = pane === 'single' ? 'block' : 'none';
-      document.getElementById('batchPane').style.display = pane === 'batch' ? 'block' : 'none';
-      document.getElementById('handoffPane').style.display = pane === 'handoff' ? 'block' : 'none';
-      document.getElementById('traceSingleBtn').classList.toggle('active', pane === 'single');
-      document.getElementById('traceBatchBtn').classList.toggle('active', pane === 'batch');
-      document.getElementById('traceHandoffBtn').classList.toggle('active', pane === 'handoff');
-    }
-
-    function readEntries(){
-      try { return JSON.parse(localStorage.getItem(storeKey) || '[]'); } catch { return []; }
-    }
-    function writeEntries(entries){
-      localStorage.setItem(storeKey, JSON.stringify(entries));
-    }
-
-    function saveSingleTrace(){
-      const dept = document.getElementById('dept').value.trim();
-      const part = document.getElementById('part').value.trim();
-      const shift = document.getElementById('shift').value.trim();
-      const pph = document.getElementById('pph').value.trim();
-      const keywords = document.getElementById('keywords').value.trim();
-      if(!dept || !part || !shift || !pph){
-        document.getElementById('singleStatus').textContent = 'Department, Part Number, Team Member / Shift, and Actual Parts Per Hour are required.';
-        return;
-      }
-      const entries = readEntries();
-      entries.push({
-        id: 'trace-' + Date.now(),
-        department: dept,
-        partNumber: part,
-        shift,
-        actualPPH: Number(pph) || pph,
-        keywords: keywords ? keywords.split(',').map(s => s.trim()).filter(Boolean) : [],
-        status: 'OPEN',
-        createdAt: new Date().toISOString()
-      });
-      writeEntries(entries);
-      document.getElementById('singleStatus').textContent = 'Trace saved.';
-      clearSingleTrace(false);
-      refreshAll();
-    }
-
-    function clearSingleTrace(clearStatus=true){
-      ['dept','part','shift','pph','keywords'].forEach(id => document.getElementById(id).value = '');
-      if(clearStatus) document.getElementById('singleStatus').textContent = '';
-    }
-
-    function extractBlocks(text){
-      return text.split(/\n\s*\n/).map(x => x.trim()).filter(Boolean);
-    }
-
-    function parseBlock(block, i){
-      const lines = block.split(/\n/).map(x => x.trim()).filter(Boolean);
-      const record = { raw: block, index: i+1, keywords: [] };
-      for(const line of lines){
-        if(/^TRACE ENTRY/i.test(line)) { record.title = line; continue; }
-        const m = line.match(/^([^:]+):\s*(.*)$/);
-        if(!m) continue;
-        const key = m[1].trim().toLowerCase();
-        const val = m[2].trim();
-        if(key === 'department') record.department = val;
-        if(key === 'part number') record.partNumber = val;
-        if(key === 'team member / shift') record.shift = val;
-        if(key === 'actual parts per hour') record.actualPPH = Number(val) || val;
-        if(key === 'keywords') record.keywords = val.split(',').map(s => s.trim()).filter(Boolean);
-      }
-      record.valid = Boolean(record.department && record.partNumber && record.shift && record.actualPPH !== undefined && record.actualPPH !== '');
-      record.status = 'OPEN';
-      record.createdAt = new Date().toISOString();
-      record.id = 'trace-' + Date.now() + '-' + i;
-      return record;
-    }
-
-    function previewBatch(){
-      const text = document.getElementById('batchInput').value;
-      const blocks = extractBlocks(text);
-      const parsed = blocks.map((b, i) => parseBlock(b, i));
-      lastPreview = parsed;
-      const valid = parsed.filter(p => p.valid);
-      document.getElementById('detectedBlocks').textContent = blocks.length;
-      document.getElementById('validEntries').textContent = valid.length;
-      document.getElementById('skippedBlocks').textContent = parsed.length - valid.length;
-      if(!valid.length){
-        document.getElementById('batchPreview').textContent = 'No valid entries found.';
-        return;
-      }
-      document.getElementById('batchPreview').innerHTML = '<strong>TRACE BATCH PREVIEW</strong><br><br>' + valid.slice(0,6).map(v => `${v.title || ('TRACE ENTRY ' + String(v.index).padStart(3,'0'))}<br>Department: ${v.department}<br>Part Number: ${v.partNumber}<br>Team Member / Shift: ${v.shift}<br>Actual Parts Per Hour: ${v.actualPPH}<br>Keywords: ${(v.keywords||[]).join(', ')}`).join('<br><br>');
-    }
-
-    function saveBatch(){
-      const valid = (lastPreview || []).filter(v => v.valid);
-      if(!valid.length){
-        document.getElementById('batchPreview').textContent = 'No valid entries found.';
-        return;
-      }
-      const existing = readEntries();
-      writeEntries(existing.concat(valid));
-      document.getElementById('batchPreview').innerHTML = `<strong>TRACE BATCH SAVED</strong><br><br>Detected Blocks: ${(lastPreview||[]).length}<br>Valid Entries: ${valid.length}<br>Skipped Blocks: ${(lastPreview||[]).length - valid.length}`;
-      refreshAll();
-    }
-
-    function clearBatch(){
-      document.getElementById('batchInput').value = '';
-      document.getElementById('batchPreview').textContent = 'Batch preview will show here.';
-      document.getElementById('detectedBlocks').textContent = '0';
-      document.getElementById('validEntries').textContent = '0';
-      document.getElementById('skippedBlocks').textContent = '0';
-      lastPreview = [];
-    }
-
-    function loadSampleBatch(){
-      document.getElementById('batchInput').value = `TRACE ENTRY 001\nDepartment: Welding\nPart Number: A-1001\nTeam Member / Shift: Mike / 1st\nActual Parts Per Hour: 14\nKeywords: Fixture, Fit-up, Rework\n\nTRACE ENTRY 002\nDepartment: Laser\nPart Number: L-1002\nTeam Member / Shift: Alex / 1st\nActual Parts Per Hour: 20\nKeywords: Setup, Tooling, Prints\n\nTRACE ENTRY 003\nDepartment: Forming\nPart Number: F-3001\nTeam Member / Shift: Alex / 1st\nActual Parts Per Hour: 20\nKeywords: Setup, Tooling, Prints`;
-      previewBatch();
-    }
-
-    function buildHandoff(){
-      const entries = readEntries();
-      const latest = entries.slice(-10);
-      const deptCounts = {};
-      latest.forEach(e => deptCounts[e.department] = (deptCounts[e.department] || 0) + 1);
-      const topDept = Object.entries(deptCounts).sort((a,b)=>b[1]-a[1])[0]?.[0] || 'UNKNOWN';
-      document.getElementById('handoffText').value = `AI-CIS HANDOFF\n\nPattern Source: AI-Trace\nTop Department: ${topDept}\nRecent Entries Considered: ${latest.length}\n\nUse AI-CIS to determine whether this pattern deserves structured corrective action.`;
-    }
-
-    function copyHandoff(){
-      const ta = document.getElementById('handoffText');
-      ta.select();
-      document.execCommand('copy');
-    }
-
-    function openAgent(key){
-      goToScreen('more');
-    }
-
-    function summarize(entries){
-      const out = { total: entries.length, dept: '—', keyword: '—', part: '—', flow: '—', priorityDept:'—', priorityReason:'Reason: —' };
-      const deptCounts = {}, keywordCounts = {}, partCounts = {};
-      entries.forEach(e => {
-        deptCounts[e.department] = (deptCounts[e.department] || 0) + 1;
-        partCounts[e.partNumber] = (partCounts[e.partNumber] || 0) + 1;
-        (e.keywords || []).forEach(k => keywordCounts[k] = (keywordCounts[k] || 0) + 1);
-      });
-      const topDept = Object.entries(deptCounts).sort((a,b)=>b[1]-a[1])[0];
-      const topKeyword = Object.entries(keywordCounts).sort((a,b)=>b[1]-a[1])[0];
-      const topPart = Object.entries(partCounts).sort((a,b)=>b[1]-a[1])[0];
-      out.dept = topDept?.[0] || '—';
-      out.keyword = topKeyword?.[0] || '—';
-      out.part = topPart?.[0] || '—';
-      out.flow = topKeyword?.[0] || '—';
-      out.priorityDept = out.dept;
-      const open = entries.filter(e => e.status === 'OPEN').length;
-      const repeat = topKeyword?.[1] || 0;
-      const aging = Math.min(entries.length, 2);
-      out.priorityReason = `Reason: ${open} open / ${repeat} repeat / ${aging} aging`;
-      return {out, deptCounts, keywordCounts, partCounts};
-    }
-
-    function renderBars(targetId, counts){
-      const root = document.getElementById(targetId);
-      if(!root) return;
-      const rows = Object.entries(counts).sort((a,b)=>b[1]-a[1]).slice(0,6);
-      if(!rows.length){ root.innerHTML = '<div class="miniSub">No data yet.</div>'; return; }
-      const max = rows[0][1] || 1;
-      root.innerHTML = rows.map(([name, val]) => `<div class="barRow"><div class="barLabel">${name}</div><div class="barTrack"><div class="barFill" style="width:${Math.max(10, Math.round((val/max)*100))}%"></div></div><div class="barValue">${val}</div></div>`).join('');
-    }
-
-    function refreshAll(){
-      const entries = readEntries();
-      const {out, deptCounts, keywordCounts, partCounts} = summarize(entries);
-      const set = (id, value) => { const el = document.getElementById(id); if(el) el.textContent = value; };
-      set('homeSaved', out.total); set('homeDept', out.dept); set('homeKeyword', out.keyword); set('homePart', out.part);
-      set('dashSaved', out.total); set('dashDept', out.dept); set('dashKeyword', out.keyword); set('dashPart', out.part); set('dashFlow', out.flow);
-      set('dashPriorityDept', out.priorityDept); set('dashPriorityReason', out.priorityReason);
-      renderBars('deptBars', deptCounts); renderBars('keywordBars', keywordCounts); renderBars('partBars', partCounts);
-      const recent = entries.slice(-6).reverse();
-      const recentHtml = recent.length ? recent.map(e => `<div class="recentItem">${e.department} / ${e.partNumber} / ${e.status}</div>`).join('') : '<div class="miniSub">No recent activity yet.</div>';
-      const traceHtml = recent.length ? recent.map(e => `<div class="listItem">${e.department} / ${e.partNumber} / ${e.shift}</div>`).join('') : '<div class="miniSub">No trace history yet.</div>';
-      const openAgingHtml = recent.length ? recent.map(e => `<div class="listItem" onclick="goToScreen('trace')">${e.department} / ${e.partNumber} / 1d</div>`).join('') : '<div class="miniSub">No open items yet.</div>';
-      const recentHome = document.getElementById('recentHome'); if(recentHome) recentHome.innerHTML = recentHtml;
-      const traceLog = document.getElementById('traceLog'); if(traceLog) traceLog.innerHTML = traceHtml;
-      const openAgingList = document.getElementById('openAgingList'); if(openAgingList) openAgingList.innerHTML = openAgingHtml;
-    }
-
-    refreshAll();
-    setTracePane('single');
+    function goToScreen(id){document.querySelectorAll('.screen').forEach(el=>el.classList.remove('active'));const target=document.getElementById(id);if(target)target.classList.add('active');document.querySelectorAll('.bottomBar .navBtn').forEach(btn=>btn.classList.remove('active'));const labels=['home','trace','cis','dashboard','more'];const idx=labels.indexOf(id);if(idx>=0)document.querySelectorAll('.bottomBar .navBtn')[idx].classList.add('active');if(id==='dashboard'||id==='home'||id==='trace')refreshAll();}
+    function setTracePane(pane){activeTracePane=pane;document.getElementById('singlePane').style.display=pane==='single'?'block':'none';document.getElementById('batchPane').style.display=pane==='batch'?'block':'none';document.getElementById('handoffPane').style.display=pane==='handoff'?'block':'none';document.getElementById('traceSingleBtn').classList.toggle('active',pane==='single');document.getElementById('traceBatchBtn').classList.toggle('active',pane==='batch');document.getElementById('traceHandoffBtn').classList.toggle('active',pane==='handoff');}
+    function readEntries(){try{return JSON.parse(localStorage.getItem(storeKey)||'[]');}catch{return [];}}
+    function writeEntries(entries){localStorage.setItem(storeKey,JSON.stringify(entries));}
+    function saveSingleTrace(){const dept=document.getElementById('dept').value.trim();const part=document.getElementById('part').value.trim();const shift=document.getElementById('shift').value.trim();const pph=document.getElementById('pph').value.trim();const keywords=document.getElementById('keywords').value.trim();if(!dept||!part||!shift||!pph){document.getElementById('singleStatus').textContent='Department, Part Number, Team Member / Shift, and Actual Parts Per Hour are required.';return;}const entries=readEntries();entries.push({id:'trace-'+Date.now(),department:dept,partNumber:part,shift,actualPPH:Number(pph)||pph,keywords:keywords?keywords.split(',').map(s=>s.trim()).filter(Boolean):[],status:'OPEN',createdAt:new Date().toISOString()});writeEntries(entries);document.getElementById('singleStatus').textContent='Trace saved.';clearSingleTrace(false);refreshAll();}
+    function clearSingleTrace(clearStatus=true){['dept','part','shift','pph','keywords'].forEach(id=>document.getElementById(id).value='');if(clearStatus)document.getElementById('singleStatus').textContent='';}
+    function extractBlocks(text){return text.split(/\n\s*\n/).map(x=>x.trim()).filter(Boolean);}
+    function parseBlock(block,i){const lines=block.split(/\n/).map(x=>x.trim()).filter(Boolean);const record={raw:block,index:i+1,keywords:[]};for(const line of lines){if(/^TRACE ENTRY/i.test(line)){record.title=line;continue;}const m=line.match(/^([^:]+):\s*(.*)$/);if(!m)continue;const key=m[1].trim().toLowerCase();const val=m[2].trim();if(key==='department')record.department=val;if(key==='part number')record.partNumber=val;if(key==='team member / shift')record.shift=val;if(key==='actual parts per hour')record.actualPPH=Number(val)||val;if(key==='keywords')record.keywords=val.split(',').map(s=>s.trim()).filter(Boolean);}record.valid=Boolean(record.department&&record.partNumber&&record.shift&&record.actualPPH!==undefined&&record.actualPPH!=='');record.status='OPEN';record.createdAt=new Date().toISOString();record.id='trace-'+Date.now()+'-'+i;return record;}
+    function previewBatch(){const text=document.getElementById('batchInput').value;const blocks=extractBlocks(text);const parsed=blocks.map((b,i)=>parseBlock(b,i));lastPreview=parsed;const valid=parsed.filter(p=>p.valid);document.getElementById('detectedBlocks').textContent=blocks.length;document.getElementById('validEntries').textContent=valid.length;document.getElementById('skippedBlocks').textContent=parsed.length-valid.length;if(!valid.length){document.getElementById('batchPreview').textContent='No valid entries found.';return;}document.getElementById('batchPreview').innerHTML='<strong>TRACE BATCH PREVIEW</strong><br><br>'+valid.slice(0,6).map(v=>`${v.title||('TRACE ENTRY '+String(v.index).padStart(3,'0'))}<br>Department: ${v.department}<br>Part Number: ${v.partNumber}<br>Team Member / Shift: ${v.shift}<br>Actual Parts Per Hour: ${v.actualPPH}<br>Keywords: ${(v.keywords||[]).join(', ')}`).join('<br><br>');}
+    function saveBatch(){const valid=(lastPreview||[]).filter(v=>v.valid);if(!valid.length){document.getElementById('batchPreview').textContent='No valid entries found.';return;}const existing=readEntries();writeEntries(existing.concat(valid));document.getElementById('batchPreview').innerHTML=`<strong>TRACE BATCH SAVED</strong><br><br>Detected Blocks: ${(lastPreview||[]).length}<br>Valid Entries: ${valid.length}<br>Skipped Blocks: ${(lastPreview||[]).length-valid.length}`;refreshAll();}
+    function clearBatch(){document.getElementById('batchInput').value='';document.getElementById('batchPreview').textContent='Batch preview will show here.';document.getElementById('detectedBlocks').textContent='0';document.getElementById('validEntries').textContent='0';document.getElementById('skippedBlocks').textContent='0';lastPreview=[];}
+    function loadSampleBatch(){document.getElementById('batchInput').value=`TRACE ENTRY 001\nDepartment: Welding\nPart Number: A-1001\nTeam Member / Shift: Mike / 1st\nActual Parts Per Hour: 14\nKeywords: Fixture, Fit-up, Rework\n\nTRACE ENTRY 002\nDepartment: Laser\nPart Number: L-1002\nTeam Member / Shift: Alex / 1st\nActual Parts Per Hour: 20\nKeywords: Setup, Tooling, Prints\n\nTRACE ENTRY 003\nDepartment: Forming\nPart Number: F-3001\nTeam Member / Shift: Alex / 1st\nActual Parts Per Hour: 20\nKeywords: Setup, Tooling, Prints`;previewBatch();}
+    function buildHandoff(){const entries=readEntries();const latest=entries.slice(-10);const deptCounts={};latest.forEach(e=>deptCounts[e.department]=(deptCounts[e.department]||0)+1);const topDept=Object.entries(deptCounts).sort((a,b)=>b[1]-a[1])[0]?.[0]||'UNKNOWN';document.getElementById('handoffText').value=`AI-CIS HANDOFF\n\nPattern Source: AI-Trace\nTop Department: ${topDept}\nRecent Entries Considered: ${latest.length}\n\nUse AI-CIS to determine whether this pattern deserves structured corrective action.`;}
+    function copyHandoff(){const ta=document.getElementById('handoffText');ta.select();document.execCommand('copy');}
+    function summarize(entries){const out={total:entries.length,dept:'—',keyword:'—',part:'—',flow:'—',priorityDept:'—',priorityReason:'Reason: 0 open / 0 repeat / 0 aging'};const deptCounts={},keywordCounts={},partCounts={};entries.forEach(e=>{deptCounts[e.department]=(deptCounts[e.department]||0)+1;partCounts[e.partNumber]=(partCounts[e.partNumber]||0)+1;(e.keywords||[]).forEach(k=>keywordCounts[k]=(keywordCounts[k]||0)+1);});const topDept=Object.entries(deptCounts).sort((a,b)=>b[1]-a[1])[0];const topKeyword=Object.entries(keywordCounts).sort((a,b)=>b[1]-a[1])[0];const topPart=Object.entries(partCounts).sort((a,b)=>b[1]-a[1])[0];out.dept=topDept?.[0]||'—';out.keyword=topKeyword?.[0]||'—';out.part=topPart?.[0]||'—';out.flow=topKeyword?.[0]||'—';out.priorityDept=out.dept;const open=entries.filter(e=>e.status==='OPEN').length;const repeat=topKeyword?.[1]||0;const aging=Math.min(entries.length,2);out.priorityReason=`Reason: ${open} open / ${repeat} repeat / ${aging} aging`;return{out,deptCounts,keywordCounts,partCounts};}
+    function renderBars(targetId,counts,defaults){const root=document.getElementById(targetId);if(!root)return;let rows=Object.entries(counts).sort((a,b)=>b[1]-a[1]).slice(0,6);if(!rows.length){rows=defaults.map((name,i)=>[name,[5,4,3,2,2,1][i]||1]);}const max=rows[0][1]||1;root.innerHTML=rows.map(([name,val])=>`<div class="barRow"><div class="barLabel">${name}</div><div class="barTrack"><div class="barFill" style="width:${Math.max(18,Math.round((val/max)*100))}%"></div></div><div class="barValue">${Object.keys(counts).length?val:'—'}</div></div>`).join('');}
+    function refreshAll(){const entries=readEntries();const {out,deptCounts,keywordCounts,partCounts}=summarize(entries);const set=(id,value)=>{const el=document.getElementById(id);if(el)el.textContent=value;};set('homeSaved',out.total);set('homeDept',out.dept);set('homeKeyword',out.keyword);set('homePart',out.part);set('dashSaved',out.total);set('dashDept',out.dept);set('dashKeyword',out.keyword);set('dashPart',out.part);set('dashFlow',out.flow);set('dashPriorityDept',out.priorityDept);set('dashPriorityReason',out.priorityReason);renderBars('deptBars',deptCounts,['Welding','Laser','Machining','Assembly','Quality']);renderBars('keywordBars',keywordCounts,['Delay','Setup','Tags','Hardware','Verification']);renderBars('partBars',partCounts,['W-1001','L-1002','M-1003','A-1004','Q-1005']);const recent=entries.slice(-6).reverse();const traceLog=document.getElementById('traceLog');if(traceLog)traceLog.innerHTML=recent.length?recent.map(e=>`<div class="listItem">${e.department} / ${e.partNumber} / ${e.shift}</div>`).join(''):'<div class="miniSub">No trace history yet.</div>';const openAging=document.getElementById('openAgingList');if(openAging)openAging.innerHTML=recent.length?recent.map(e=>`<div class="listItem" onclick="goToScreen('trace')">${e.department} / ${e.partNumber} / 1d</div>`).join(''):'<div class="listItem">Welding / Missing Secondary Tag / 6d</div><div class="listItem">Laser / Release Error / 4d</div><div class="listItem">Assembly / Hardware Delay / 3d</div>';}
+    refreshAll();setTracePane('single');
   </script>
 
-<button class="install-app-btn hide-when-installed" data-install-app hidden>
-  Install app
-</button>
-
-<div class="ios-install-hint hide-when-installed" data-ios-install-hint hidden>
-  On iPhone or iPad: tap Share, then Add to Home Screen.
-</div>
-
+<button class="install-app-btn hide-when-installed" data-install-app hidden>Install app</button>
+<div class="ios-install-hint hide-when-installed" data-ios-install-hint hidden>On iPhone or iPad: tap Share, then Add to Home Screen.</div>
 <script type="module" src="/applied-intelligence-app/install.js"></script>
-
 </body>
 </html>
