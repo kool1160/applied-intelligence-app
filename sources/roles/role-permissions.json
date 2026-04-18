@@ -1,16 +1,22 @@
 {
-  "schema": "applied-intelligence-role-permissions-v1",
+  "schema": "applied-intelligence-role-permissions-v2",
   "principle": "Roles control access and responsibility, not agent identity.",
   "devicePrinciple": "The device should be configured once by an authorized person, then kept simple for the role using it.",
+  "clearancePrinciple": "Lead marks it done. Supervisor verifies it. CIS clears it from the dashboard layer.",
   "roleGroups": {
     "operational": [
       "Lead",
       "Supervisor",
+      "Maintenance",
       "Auditor"
     ],
     "support": [
       "Engineering",
       "Office Logistics"
+    ],
+    "continuous_improvement": [
+      "Continuous Improvement Staff",
+      "Continuous Improvement Manager"
     ],
     "management": [
       "General Manager",
@@ -22,6 +28,7 @@
     "respond",
     "review",
     "coordinate",
+    "improvement_governance",
     "manage",
     "oversee",
     "admin_setup",
@@ -29,7 +36,7 @@
   ],
   "roles": {
     "Lead": {
-      "description": "Floor-level trusted user focused on fast issue capture and basic routing.",
+      "description": "Floor-level trusted user focused on fast issue capture.",
       "permissions": [
         "capture"
       ],
@@ -39,17 +46,17 @@
         "aiCis": false,
         "lockedSettings": false,
         "managementDashboard": false,
-        "spreadsheetExports": false
+        "spreadsheetExports": false,
+        "clearTraceFromDashboard": false
       },
       "actions": [
         "create_trace_entry",
-        "batch_import_trace",
-        "send_to_connect",
-        "view_department_items"
+        "submit_trace_entry",
+        "mark_issue_done"
       ]
     },
     "Supervisor": {
-      "description": "Owns response, assignment, follow-up, and closure.",
+      "description": "Owns floor-level verification, response, and review.",
       "permissions": [
         "capture",
         "respond",
@@ -61,16 +68,37 @@
         "aiCis": false,
         "lockedSettings": false,
         "managementDashboard": true,
-        "spreadsheetExports": false
+        "spreadsheetExports": false,
+        "clearTraceFromDashboard": false
       },
       "actions": [
         "create_trace_entry",
-        "batch_import_trace",
         "assign_issue",
         "acknowledge_issue",
         "mark_in_progress",
-        "resolve_issue",
-        "close_issue"
+        "verify_issue_done",
+        "move_to_verified_complete"
+      ]
+    },
+    "Maintenance": {
+      "description": "Acts on maintenance-owned issues and reports repair completion.",
+      "permissions": [
+        "respond",
+        "review"
+      ],
+      "canAccess": {
+        "aiTrace": true,
+        "aiConnect": true,
+        "aiCis": false,
+        "lockedSettings": false,
+        "managementDashboard": false,
+        "spreadsheetExports": false,
+        "clearTraceFromDashboard": false
+      },
+      "actions": [
+        "acknowledge_maintenance_issue",
+        "update_repair_note",
+        "mark_repair_complete"
       ]
     },
     "Auditor": {
@@ -85,7 +113,8 @@
         "aiCis": false,
         "lockedSettings": false,
         "managementDashboard": true,
-        "spreadsheetExports": false
+        "spreadsheetExports": false,
+        "clearTraceFromDashboard": false
       },
       "actions": [
         "create_trace_entry",
@@ -106,7 +135,8 @@
         "aiCis": true,
         "lockedSettings": false,
         "managementDashboard": true,
-        "spreadsheetExports": false
+        "spreadsheetExports": false,
+        "clearTraceFromDashboard": false
       },
       "actions": [
         "review_technical_issue",
@@ -127,13 +157,60 @@
         "aiCis": false,
         "lockedSettings": false,
         "managementDashboard": true,
-        "spreadsheetExports": false
+        "spreadsheetExports": false,
+        "clearTraceFromDashboard": false
       },
       "actions": [
         "review_flow_issue",
         "coordinate_follow_up",
         "support_release_control",
         "update_logistics_note"
+      ]
+    },
+    "Continuous Improvement Staff": {
+      "description": "Reviews verified completed trace items and governs dashboard clearance.",
+      "permissions": [
+        "review",
+        "improvement_governance"
+      ],
+      "canAccess": {
+        "aiTrace": true,
+        "aiConnect": true,
+        "aiCis": true,
+        "lockedSettings": false,
+        "managementDashboard": true,
+        "spreadsheetExports": false,
+        "clearTraceFromDashboard": true
+      },
+      "actions": [
+        "review_verified_trace",
+        "clear_trace_from_dashboard",
+        "retain_trace_history",
+        "escalate_to_formal_improvement"
+      ]
+    },
+    "Continuous Improvement Manager": {
+      "description": "Owns improvement governance, dashboard clearance, retention, and formal escalation decisions.",
+      "permissions": [
+        "review",
+        "improvement_governance",
+        "manage"
+      ],
+      "canAccess": {
+        "aiTrace": true,
+        "aiConnect": true,
+        "aiCis": true,
+        "lockedSettings": true,
+        "managementDashboard": true,
+        "spreadsheetExports": true,
+        "clearTraceFromDashboard": true
+      },
+      "actions": [
+        "review_verified_trace",
+        "clear_trace_from_dashboard",
+        "archive_trace_history",
+        "escalate_to_formal_improvement",
+        "review_repeat_pattern"
       ]
     },
     "General Manager": {
@@ -149,13 +226,15 @@
         "aiCis": true,
         "lockedSettings": true,
         "managementDashboard": true,
-        "spreadsheetExports": true
+        "spreadsheetExports": true,
+        "clearTraceFromDashboard": true
       },
       "actions": [
         "review_cross_department_dashboard",
         "review_escalations",
         "configure_device_role",
-        "enable_or_disable_modules"
+        "enable_or_disable_modules",
+        "override_clearance_when_necessary"
       ]
     },
     "Executive Management": {
@@ -172,7 +251,8 @@
         "aiCis": true,
         "lockedSettings": true,
         "managementDashboard": true,
-        "spreadsheetExports": true
+        "spreadsheetExports": true,
+        "clearTraceFromDashboard": true
       },
       "actions": [
         "view_full_dashboard",
@@ -180,16 +260,28 @@
         "review_rollup_reporting",
         "manage_permissions",
         "configure_device_role",
-        "approve_escalation_path"
+        "approve_escalation_path",
+        "override_clearance_when_necessary"
       ]
     }
   },
-  "closureRule": {
-    "statement": "Issues should be cleared through AI-Connect supervisor or management flow, not by deleting trace history.",
-    "allowedClearRoles": [
-      "Supervisor",
+  "clearanceRule": {
+    "statement": "Maintenance can complete work, but cannot clear traces. CIS is the normal authority for clearing traces from the dashboard after review. General Manager and Executive Management retain oversight-level override authority.",
+    "normalClearRoles": [
+      "Continuous Improvement Staff",
+      "Continuous Improvement Manager"
+    ],
+    "oversightClearRoles": [
       "General Manager",
       "Executive Management"
+    ],
+    "blockedClearRoles": [
+      "Lead",
+      "Supervisor",
+      "Maintenance",
+      "Auditor",
+      "Engineering",
+      "Office Logistics"
     ]
   }
 }
