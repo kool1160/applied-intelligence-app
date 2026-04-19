@@ -1,0 +1,68 @@
+<svg width="1024" height="1024" viewBox="0 0 1024 1024" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="160" y1="120" x2="864" y2="904" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0B1E57"/>
+      <stop offset="0.55" stop-color="#07123B"/>
+      <stop offset="1" stop-color="#020915"/>
+    </linearGradient>
+    <radialGradient id="coreGlow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(512 864) rotate(90) scale(180 380)">
+      <stop offset="0" stop-color="#61D9FF"/>
+      <stop offset="0.35" stop-color="#2D8CFF"/>
+      <stop offset="1" stop-color="#2D8CFF" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="strokeGrad" x1="260" y1="220" x2="760" y2="760" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#F8FBFF"/>
+      <stop offset="0.52" stop-color="#E7EEFF"/>
+      <stop offset="1" stop-color="#B9C8EF"/>
+    </linearGradient>
+    <linearGradient id="markGrad" x1="380" y1="300" x2="660" y2="690" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="0.55" stop-color="#EEF3FF"/>
+      <stop offset="1" stop-color="#C4D0F0"/>
+    </linearGradient>
+    <filter id="outerGlow" x="120" y="120" width="784" height="784" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+      <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+      <feGaussianBlur stdDeviation="14" result="effect1_foregroundBlur"/>
+    </filter>
+    <filter id="edgeGlow" x="100" y="100" width="824" height="824" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+      <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+      <feOffset/>
+      <feGaussianBlur stdDeviation="18"/>
+      <feComposite in2="hardAlpha" operator="out"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 0.27 0 0 0 0 0.74 0 0 0 0 1 0 0 0 0.95 0"/>
+      <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/>
+      <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
+    </filter>
+  </defs>
+
+  <g filter="url(#edgeGlow)">
+    <rect x="160" y="140" width="704" height="704" rx="132" fill="url(#bg)"/>
+    <rect x="160" y="140" width="704" height="704" rx="132" stroke="#5BB8FF" stroke-opacity="0.65" stroke-width="6"/>
+  </g>
+
+  <ellipse cx="512" cy="860" rx="200" ry="44" fill="url(#coreGlow)" opacity="0.95"/>
+
+  <g filter="url(#outerGlow)">
+    <path d="M392 298C404 282 428 282 440 298L628 626C640 642 628 664 608 664H416C396 664 384 642 396 626L584 298" opacity="0"/>
+  </g>
+
+  <g stroke="url(#strokeGrad)" stroke-width="34" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M338 654L444 374C450 360 470 360 476 374L566 574"/>
+    <path d="M316 688L232 544C222 526 230 502 248 492L434 298C451 280 479 280 496 298L714 676C728 701 710 732 682 732H364C336 732 318 701 332 676L390 576" opacity="0"/>
+    <path d="M290 684L240 592C228 571 236 544 258 531L455 297C472 277 503 277 520 297L736 684C751 708 733 740 705 740H318C290 740 272 708 286 684Z"/>
+  </g>
+
+  <g fill="#F6FAFF" stroke="#0B1733" stroke-width="10">
+    <circle cx="306" cy="580" r="30"/>
+    <circle cx="652" cy="396" r="30"/>
+    <circle cx="560" cy="692" r="30"/>
+  </g>
+
+  <g fill="url(#markGrad)">
+    <path d="M462 382C470 365 494 365 502 382L606 614C612 628 602 644 586 644H538C525 644 514 637 509 625L486 572H398L372 626C367 638 356 646 343 646H295C278 646 268 629 275 614L462 382ZM438 494H451L470 446L489 494H438Z"/>
+    <path d="M610 392C610 375 624 361 641 361H671C688 361 702 375 702 392V658C702 675 688 689 671 689H641C624 689 610 675 610 658V392Z"/>
+    <circle cx="656" cy="336" r="34" fill="#F8FBFF"/>
+  </g>
+</svg>
