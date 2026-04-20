@@ -1,1 +1,55 @@
+import React from 'react';
 
+import type { MyWorkItemModel } from '../../models/my-work-item-model';
+
+type WorkItemCardProps = {
+  item: MyWorkItemModel;
+  onAction?: (actionType: string, item: MyWorkItemModel) => void;
+};
+
+export function WorkItemCard({
+  item,
+  onAction,
+}: WorkItemCardProps) {
+  return (
+    <article
+      data-component="WorkItemCard"
+      data-item-id={item.itemId}
+      data-item-type={item.itemType}
+    >
+      <div data-slot="title">{item.title}</div>
+      <div data-slot="item-type">{item.itemType}</div>
+      <div data-slot="linked-object">
+        {item.linkedObjectType}: {item.linkedObjectRef}
+      </div>
+
+      {item.status ? <div data-slot="status">{item.status}</div> : null}
+      {item.severity ? <div data-slot="severity">{item.severity}</div> : null}
+      {item.ackRequired !== undefined ? (
+        <div data-slot="ack-required">
+          Ack Required: {item.ackRequired ? 'Yes' : 'No'}
+        </div>
+      ) : null}
+      {item.ackState ? <div data-slot="ack-state">{item.ackState}</div> : null}
+
+      <div data-slot="timestamp">{item.timestamp}</div>
+
+      {item.quickActions && item.quickActions.length > 0 ? (
+        <div data-slot="quick-actions">
+          {item.quickActions.map((action) => (
+            <button
+              key={action.type}
+              type="button"
+              disabled={action.enabled === false}
+              onClick={() => onAction?.(action.type, item)}
+            >
+              {action.label}
+            </button>
+          ))}
+        </div>
+      ) : null}
+    </article>
+  );
+}
+
+export type { WorkItemCardProps };
