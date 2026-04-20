@@ -1,4 +1,4 @@
-const APP_ICON = '/applied-intelligence-app/assets/icons/applied-intelligence-icon.svg';
+const APP_ICON = '/applied-intelligence-app/assets/icons/applied-intelligence-icon-v2.svg';
 
 function ensureLink(rel, href, sizes = null, type = null) {
   let link = document.querySelector(`link[rel="${rel}"]`);
