@@ -3,7 +3,7 @@
   "name": "Applied Intelligence",
   "short_name": "Applied AI",
   "description": "Applied Intelligence V8 with AI-Trace, AI-CIS, dashboard views, and install-ready mobile behavior.",
-  "start_url": "/applied-intelligence-app/?source=pwa&icon=restored",
+  "start_url": "/applied-intelligence-app/?source=pwa",
   "scope": "/applied-intelligence-app/",
   "display": "standalone",
   "background_color": "#08111f",
@@ -12,8 +12,8 @@
   "icons": [
     {
       "src": "/applied-intelligence-app/assets/icons/applied-intelligence-icon.svg",
-      "sizes": "180x180",
-      "type": "image/png",
+      "sizes": "any",
+      "type": "image/svg+xml",
       "purpose": "any maskable"
     }
   ]
