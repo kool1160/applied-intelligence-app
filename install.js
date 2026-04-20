@@ -1,4 +1,4 @@
-const APP_ICON = '/applied-intelligence-app/assets/icons/applied-intelligence-icon-v2.svg';
+const APP_ICON = '/applied-intelligence-app/assets/icons/applied-intelligence-icon.svg';
 
 function ensureLink(rel, href, sizes = null, type = null) {
   let link = document.querySelector(`link[rel="${rel}"]`);
@@ -14,9 +14,9 @@ function ensureLink(rel, href, sizes = null, type = null) {
 }
 
 function applyApprovedAppIcon() {
-  ensureLink('apple-touch-icon', APP_ICON, 'any', 'image/svg+xml');
-  ensureLink('icon', APP_ICON, 'any', 'image/svg+xml');
-  ensureLink('shortcut icon', APP_ICON, null, 'image/svg+xml');
+  ensureLink('apple-touch-icon', APP_ICON, '180x180', 'image/png');
+  ensureLink('icon', APP_ICON, '180x180', 'image/png');
+  ensureLink('shortcut icon', APP_ICON, null, 'image/png');
 }
 
 let deferredPrompt = null;
