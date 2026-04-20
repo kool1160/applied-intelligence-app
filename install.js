@@ -14,9 +14,9 @@ function ensureLink(rel, href, sizes = null, type = null) {
 }
 
 function applyApprovedAppIcon() {
-  ensureLink('apple-touch-icon', APP_ICON, '180x180', 'image/png');
-  ensureLink('icon', APP_ICON, '180x180', 'image/png');
-  ensureLink('shortcut icon', APP_ICON, null, 'image/png');
+  ensureLink('apple-touch-icon', APP_ICON, 'any', 'image/svg+xml');
+  ensureLink('icon', APP_ICON, 'any', 'image/svg+xml');
+  ensureLink('shortcut icon', APP_ICON, null, 'image/svg+xml');
 }
 
 let deferredPrompt = null;
