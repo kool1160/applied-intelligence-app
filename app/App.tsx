@@ -4,7 +4,9 @@ import { AppShell } from '../components/foundation/AppShell';
 import type { ScreenKey } from '../enums/screen-key';
 import { AlertsScreen } from '../screens/AlertsScreen';
 import { HandoffsScreen } from '../screens/HandoffsScreen';
+import { MeetingsScreen } from '../screens/MeetingsScreen';
 import { MyWorkScreen } from '../screens/MyWorkScreen';
+import { ThreadsScreen } from '../screens/ThreadsScreen';
 
 function renderPhaseOneScreen(activeScreen: ScreenKey) {
   switch (activeScreen) {
@@ -15,12 +17,9 @@ function renderPhaseOneScreen(activeScreen: ScreenKey) {
     case 'handoffs':
       return <HandoffsScreen />;
     case 'threads':
+      return <ThreadsScreen />;
     case 'meetings':
-      return (
-        <div data-component="Phase1PlaceholderScreen">
-          {activeScreen} is not implemented in this milestone.
-        </div>
-      );
+      return <MeetingsScreen />;
     default:
       return <MyWorkScreen />;
   }
