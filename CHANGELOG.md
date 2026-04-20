@@ -2,6 +2,20 @@
 
 All notable changes to the Applied Intelligence app should be documented in this file.
 
+## 2026-04-20
+
+### Changed
+- Normalized app icon metadata in `manifest.json` so the declared icon type and sizing match the current primary icon source.
+- Normalized runtime icon metadata in `install.js` to align with the current wrapper-ready icon source.
+- Cleaned repo direction by adding `docs/wrapper-ready-plan.md` as the in-repo project-direction reference.
+
+### Removed
+- Removed the unused `assets/icons/applied-intelligence-icon-v3.svg` experiment asset.
+
+### Notes
+- The repo cleanup pass focused on making the project read cleaner and behave more like a stable web-app foundation for future native wrapping.
+- Static icon references embedded in `index.html` still need a separate dedicated fix pass.
+
 ## 2026-04-18
 
 ### Added
