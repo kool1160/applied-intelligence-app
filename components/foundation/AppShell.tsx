@@ -12,8 +12,8 @@ type AppShellProps = {
 
 const PRIMARY_NAV_ITEMS: PrimaryNavItem[] = [
   { key: 'myWork', label: 'My Work' },
-  { key: 'alerts', label: 'Alerts', disabled: true },
-  { key: 'handoffs', label: 'Handoffs', disabled: true },
+  { key: 'alerts', label: 'Alerts' },
+  { key: 'handoffs', label: 'Handoffs' },
   { key: 'threads', label: 'Threads', disabled: true },
   { key: 'meetings', label: 'Meetings', disabled: true },
 ];
