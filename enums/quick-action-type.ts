@@ -1,0 +1,1 @@
+export const QUICK_ACTION_TYPE_PLACEHOLDER = true;
