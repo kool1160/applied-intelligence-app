@@ -1,3 +1,5 @@
+import { initAIConnectRuntimeBridge } from './assets/runtime-bridge/ai-connect-bridge.js';
+
 let deferredPrompt = null;
 
 window.addEventListener('beforeinstallprompt', event => {
@@ -54,6 +56,7 @@ export function showIOSInstallHint() {
 document.addEventListener('DOMContentLoaded', () => {
   registerServiceWorker();
   showIOSInstallHint();
+  initAIConnectRuntimeBridge();
 
   const btn = document.querySelector('[data-install-app]');
   if (btn) {
