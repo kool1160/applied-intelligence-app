@@ -1,0 +1,256 @@
+:root {
+  --ai-shell-border: rgba(220, 236, 255, 0.16);
+  --ai-shell-fill: linear-gradient(180deg, rgba(22, 38, 66, 0.38), rgba(8, 16, 30, 0.18));
+  --ai-card-fill: linear-gradient(180deg, rgba(15, 27, 49, 0.94), rgba(7, 14, 27, 0.98));
+  --ai-card-border: rgba(151, 182, 255, 0.1);
+  --ai-badge-fill: rgba(143, 207, 255, 0.1);
+  --ai-badge-border: rgba(143, 207, 255, 0.22);
+}
+
+.topWrap {
+  background: var(--ai-shell-fill);
+  border: 1px solid var(--ai-shell-border);
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.16), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.bottomBar {
+  background: linear-gradient(180deg, rgba(34, 56, 92, 0.16), rgba(10, 18, 34, 0.08));
+  border: 1px solid rgba(220, 236, 255, 0.18);
+  box-shadow: 0 16px 34px rgba(0, 0, 0, 0.16), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+
+.homeTile,
+.priorityCard,
+.step,
+.agentCard,
+.listItem,
+.chartBox,
+.recentItem,
+.card,
+.ai-connect-card,
+.ai-connect-shell {
+  background: var(--ai-card-fill);
+  border: 1px solid var(--ai-card-border);
+}
+
+.tileIcon {
+  display: none;
+}
+
+.homeTile {
+  min-height: 142px;
+  display: grid;
+  align-content: start;
+  gap: 8px;
+}
+
+.homeTile::after {
+  content: attr(data-badge);
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  min-height: 28px;
+  padding: 0.25rem 0.7rem;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  line-height: 1;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text);
+  background: var(--ai-badge-fill);
+  border: 1px solid var(--ai-badge-border);
+  order: -1;
+}
+
+.ai-connect-shell {
+  display: grid;
+  gap: 16px;
+  padding: 18px;
+  border-radius: 24px;
+  box-shadow: var(--shadow);
+}
+
+.ai-connect-header {
+  display: grid;
+  gap: 8px;
+}
+
+.ai-connect-kicker {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  min-height: 28px;
+  padding: 0.25rem 0.7rem;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  line-height: 1;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text);
+  background: var(--ai-badge-fill);
+  border: 1px solid var(--ai-badge-border);
+}
+
+.ai-connect-title {
+  margin: 0;
+  font-size: clamp(1.7rem, 3.5vw, 2.45rem);
+  letter-spacing: -0.04em;
+}
+
+.ai-connect-copy {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.ai-connect-tab-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.ai-connect-tab {
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.03));
+  color: var(--text);
+  border-radius: 999px;
+  padding: 0.75rem 1rem;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.ai-connect-tab.active {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.16), rgba(120, 187, 255, 0.09));
+  border-color: rgba(214, 233, 255, 0.22);
+}
+
+.ai-connect-summary {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.ai-connect-metric {
+  padding: 14px;
+  border-radius: 20px;
+  background: linear-gradient(180deg, rgba(11, 21, 41, 0.94), rgba(8, 14, 26, 0.98));
+  border: 1px solid rgba(151, 182, 255, 0.1);
+}
+
+.ai-connect-metric-label {
+  color: var(--muted);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.ai-connect-metric-value {
+  margin-top: 6px;
+  font-size: 1.35rem;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+}
+
+.ai-connect-list {
+  display: grid;
+  gap: 12px;
+}
+
+.ai-connect-card {
+  padding: 16px;
+  border-radius: 22px;
+  box-shadow: var(--shadow-soft);
+}
+
+.ai-connect-card-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: start;
+}
+
+.ai-connect-card-title {
+  margin: 0;
+  font-size: 1rem;
+  letter-spacing: -0.02em;
+}
+
+.ai-connect-card-meta,
+.ai-connect-card-actions,
+.ai-connect-card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.ai-connect-chip {
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  padding: 0.25rem 0.65rem;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  line-height: 1;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.ai-connect-card-copy {
+  margin: 10px 0 0;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.ai-connect-card-actions {
+  margin-top: 14px;
+}
+
+.ai-connect-button {
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.03));
+  color: var(--text);
+  border-radius: 999px;
+  padding: 0.7rem 0.95rem;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.ai-connect-button.primary {
+  color: #06111f;
+  background: linear-gradient(180deg, #96d0ff, #78bbff);
+  border-color: rgba(151, 207, 255, 0.55);
+}
+
+.ai-connect-panel-placeholder {
+  padding: 18px;
+  border-radius: 22px;
+  background: linear-gradient(180deg, rgba(11, 21, 41, 0.94), rgba(8, 14, 26, 0.98));
+  border: 1px solid rgba(151, 182, 255, 0.1);
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+#more .agentCard {
+  cursor: pointer;
+}
+
+@media (min-width: 820px) {
+  .ai-connect-summary {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 700px) {
+  .homeTile {
+    min-height: 126px;
+  }
+
+  .ai-connect-summary {
+    grid-template-columns: 1fr;
+  }
+}
