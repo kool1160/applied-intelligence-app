@@ -5,6 +5,7 @@
   --ai-card-border: rgba(151, 182, 255, 0.1);
   --ai-badge-fill: rgba(143, 207, 255, 0.1);
   --ai-badge-border: rgba(143, 207, 255, 0.22);
+  --ai-connect-bottom-clearance: calc(112px + env(safe-area-inset-bottom, 0px));
 }
 
 .topWrap {
@@ -62,17 +63,22 @@
   order: -1;
 }
 
+#connect .glass.panel {
+  padding-bottom: var(--ai-connect-bottom-clearance);
+}
+
 .ai-connect-shell {
   display: grid;
-  gap: 16px;
+  gap: 14px;
   padding: 18px;
+  padding-bottom: calc(18px + env(safe-area-inset-bottom, 0px));
   border-radius: 24px;
   box-shadow: var(--shadow);
 }
 
 .ai-connect-header {
   display: grid;
-  gap: 8px;
+  gap: 6px;
 }
 
 .ai-connect-kicker {
@@ -93,30 +99,52 @@
 
 .ai-connect-title {
   margin: 0;
-  font-size: clamp(1.7rem, 3.5vw, 2.45rem);
+  font-size: clamp(1.45rem, 3vw, 2.2rem);
+  line-height: 1.05;
   letter-spacing: -0.04em;
 }
 
 .ai-connect-copy {
   margin: 0;
   color: var(--muted);
-  line-height: 1.6;
+  line-height: 1.55;
 }
 
 .ai-connect-tab-row {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   gap: 10px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 2px 2px 6px;
+  margin: -2px -2px 0;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  scroll-snap-type: x proximity;
+}
+
+.ai-connect-tab-row::-webkit-scrollbar {
+  display: none;
 }
 
 .ai-connect-tab {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  width: auto;
+  min-height: 42px;
+  white-space: nowrap;
+  scroll-snap-align: start;
   border: 1px solid rgba(255, 255, 255, 0.14);
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.03));
   color: var(--text);
   border-radius: 999px;
-  padding: 0.75rem 1rem;
+  padding: 0.66rem 0.95rem;
   font: inherit;
+  font-size: 0.95rem;
   font-weight: 700;
+  line-height: 1;
   cursor: pointer;
 }
 
@@ -127,7 +155,7 @@
 
 .ai-connect-summary {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 12px;
 }
 
@@ -210,11 +238,15 @@
 }
 
 .ai-connect-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
   border: 1px solid rgba(255, 255, 255, 0.14);
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.03));
   color: var(--text);
   border-radius: 999px;
-  padding: 0.7rem 0.95rem;
+  padding: 0.66rem 0.95rem;
   font: inherit;
   font-weight: 700;
   cursor: pointer;
@@ -241,7 +273,7 @@
 
 @media (min-width: 820px) {
   .ai-connect-summary {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 }
 
@@ -250,7 +282,53 @@
     min-height: 126px;
   }
 
+  #connect .glass.panel {
+    padding-bottom: calc(132px + env(safe-area-inset-bottom, 0px));
+  }
+
+  .ai-connect-shell {
+    gap: 12px;
+    padding: 14px;
+    border-radius: 22px;
+  }
+
+  .ai-connect-title {
+    font-size: 1.38rem;
+  }
+
+  .ai-connect-copy {
+    font-size: 0.96rem;
+  }
+
   .ai-connect-summary {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .ai-connect-metric {
+    padding: 12px;
+    border-radius: 18px;
+  }
+
+  .ai-connect-metric-value {
+    font-size: 1.12rem;
+  }
+
+  .ai-connect-card {
+    padding: 14px;
+    border-radius: 20px;
+  }
+
+  .ai-connect-card-top {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .ai-connect-card-actions {
+    gap: 10px;
+  }
+
+  .ai-connect-button {
+    min-height: 42px;
   }
 }
