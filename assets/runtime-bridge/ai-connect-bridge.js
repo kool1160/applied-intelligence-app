@@ -104,14 +104,70 @@ const lanes = {
   threads: {
     kicker: 'AI-Connect · Threads',
     title: 'Threads / Communication',
-    copy: 'Threads stay tied to real work objects, departments, and owners. This lane is the next approved build step after the current bridge.',
-    placeholder: 'Threads will become the communication lane where discussion stays attached to the actual work instead of breaking away into a generic chat app.',
+    copy: 'Threads stay tied to real work objects, departments, and owners so communication remains attached to the issue instead of drifting into generic chat.',
+    metrics: [
+      { label: 'Open', value: '5' },
+      { label: 'Unread', value: '4' },
+      { label: 'Waiting', value: '2' },
+      { label: 'Escalated Visibility', value: '2' },
+    ],
+    cards: [
+      {
+        title: 'Part A-1001 recurring issue coordination',
+        meta: ['Open', 'High Priority'],
+        tags: ['THR-00018', 'HOF-00021'],
+        copy: 'Laser and Quality are already attached, so discussion stays connected to the linked handoff and the actual production issue.',
+        actions: ['Open Thread', 'Open Handoff'],
+      },
+      {
+        title: 'Escalated routing control discussion',
+        meta: ['Active', 'Critical'],
+        tags: ['THR-00021', 'Escalation'],
+        copy: 'Leadership-visible discussion should stay tied to the escalation object and current owner so action does not get lost.',
+        actions: ['Open Thread', 'Open Escalation'],
+      },
+      {
+        title: 'Delay review meeting prep thread',
+        meta: ['Waiting', 'Unread'],
+        tags: ['THR-00019', 'MTG-00011'],
+        copy: 'Meeting communication belongs in the same operating layer as prep readiness and acknowledgment status.',
+        actions: ['Open Thread', 'Open Meeting'],
+      },
+    ],
   },
   meetings: {
     kicker: 'AI-Connect · Meetings',
     title: 'Meetings / Prep',
-    copy: 'Meetings should prepare the right people with the right information before action is needed. This lane is the next step after Threads.',
-    placeholder: 'Meetings / Prep will become the preparation lane where required attendees, unread prep, agenda items, and linked work objects stay connected.',
+    copy: 'Meetings prepare the right people with the right information before action is needed, with acknowledgment, unread prep, and linked work all visible together.',
+    metrics: [
+      { label: 'Upcoming', value: '8' },
+      { label: 'Needs Ack', value: '4' },
+      { label: 'Unread Prep', value: '5' },
+      { label: 'Today', value: '2' },
+    ],
+    cards: [
+      {
+        title: 'Part A-1001 recurring delay review',
+        meta: ['Pending', 'Warning'],
+        tags: ['MTG-00011', 'THR-00018'],
+        copy: 'Cross-functional review should stay linked to both the active thread and the originating report so attendees arrive with the same context.',
+        actions: ['Acknowledge', 'Open Meeting'],
+      },
+      {
+        title: 'Executive escalation review',
+        meta: ['Pending', 'Critical'],
+        tags: ['MTG-00013', 'LIR-P-017'],
+        copy: 'Escalated meetings should surface unread prep and linked reports up front so leadership sees the issue before the room starts talking.',
+        actions: ['Acknowledge', 'Open Prep'],
+      },
+      {
+        title: 'Today welding standup',
+        meta: ['Acknowledged', 'Today'],
+        tags: ['MTG-00012', 'Department'],
+        copy: 'Department meetings stay in the same system so prep, follow-up, and linked work do not split across separate tools.',
+        actions: ['Open Meeting', 'Open Prep'],
+      },
+    ],
   },
 };
 
