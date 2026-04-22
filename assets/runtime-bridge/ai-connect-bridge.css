@@ -332,3 +332,24 @@
     min-height: 42px;
   }
 }
+
+/* hard override against parent runtime button styles */
+#connect .ai-connect-tab-row {
+  display: flex !important;
+  flex-wrap: nowrap !important;
+  align-items: center !important;
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
+}
+
+#connect .ai-connect-tab-row .ai-connect-tab,
+#connect .ai-connect-tab {
+  display: inline-flex !important;
+  width: auto !important;
+  min-width: max-content !important;
+  max-width: none !important;
+  flex: 0 0 auto !important;
+  white-space: nowrap !important;
+  min-height: 40px !important;
+  padding: 0.62rem 0.9rem !important;
+}
