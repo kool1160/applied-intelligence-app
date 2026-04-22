@@ -15,6 +15,12 @@ const lanes = {
         meta: ['Alert', 'High Priority'],
         tags: ['LIR-P-014', 'Report'],
         copy: 'A work-linked alert is waiting on acknowledgment before the issue can move cleanly into the next action owner.',
+        details: [
+          { label: 'Status', value: 'Open' },
+          { label: 'Ack Required', value: 'Yes' },
+          { label: 'Owner', value: 'Welding Supervisor' },
+          { label: 'Updated', value: '2026-04-20 08:15 AM' },
+        ],
         actions: ['Acknowledge', 'Open Report'],
       },
       {
@@ -22,6 +28,12 @@ const lanes = {
         meta: ['Handoff', 'Open'],
         tags: ['HOF-00021', 'Ownership'],
         copy: 'This item is tied to a real handoff and should stay connected to the work object instead of floating as a generic message.',
+        details: [
+          { label: 'Priority', value: 'Medium' },
+          { label: 'Ack Required', value: 'Yes' },
+          { label: 'Owner', value: 'Assembly Lead' },
+          { label: 'Updated', value: '2026-04-20 08:25 AM' },
+        ],
         actions: ['Acknowledge', 'Open Handoff'],
       },
       {
@@ -29,6 +41,12 @@ const lanes = {
         meta: ['Meeting', 'Warning'],
         tags: ['MTG-00011', 'Required'],
         copy: 'Meeting prep and acknowledgment belong in the same operational layer so the right people arrive prepared.',
+        details: [
+          { label: 'Prep', value: 'Warning' },
+          { label: 'Unread Prep', value: '2 items' },
+          { label: 'Owner', value: 'Production Manager' },
+          { label: 'Updated', value: '2026-04-20 08:40 AM' },
+        ],
         actions: ['Acknowledge', 'Open Meeting'],
       },
     ],
@@ -49,6 +67,12 @@ const lanes = {
         meta: ['Escalation', 'Critical'],
         tags: ['ESC-00007', 'Cross-Department'],
         copy: 'Escalation visibility should remain connected to the linked operational context instead of turning into a separate chat trail.',
+        details: [
+          { label: 'Scope', value: 'Cross-Department' },
+          { label: 'Ack Required', value: 'Yes' },
+          { label: 'Owner', value: 'Production Manager' },
+          { label: 'Updated', value: '2026-04-20 09:10 AM' },
+        ],
         actions: ['Acknowledge', 'Open Context'],
       },
       {
@@ -56,6 +80,12 @@ const lanes = {
         meta: ['Notice', 'Read'],
         tags: ['SUM-00011', 'Report'],
         copy: 'Lower-friction notices still live in the same system, but they are visually quieter than true alerts or escalations.',
+        details: [
+          { label: 'Status', value: 'Read' },
+          { label: 'Priority', value: 'Low' },
+          { label: 'Owner', value: 'Operations' },
+          { label: 'Updated', value: '2026-04-20 09:22 AM' },
+        ],
         actions: ['Open Report'],
       },
       {
@@ -63,6 +93,12 @@ const lanes = {
         meta: ['Broadcast', 'Unread'],
         tags: ['BRC-00003', 'Operations'],
         copy: 'Broadcasts should be structured and work-linked so communication scales without becoming noise.',
+        details: [
+          { label: 'Audience', value: 'All Leads' },
+          { label: 'Ack Required', value: 'No' },
+          { label: 'Owner', value: 'Operations' },
+          { label: 'Updated', value: '2026-04-20 09:35 AM' },
+        ],
         actions: ['Open Broadcast'],
       },
     ],
@@ -83,6 +119,12 @@ const lanes = {
         meta: ['Escalated', 'Pending'],
         tags: ['HOF-00025', 'THR-00021'],
         copy: 'Escalated handoffs must keep linked context attached so leadership sees the issue, ownership, and active thread in one place.',
+        details: [
+          { label: 'Transfer', value: 'Welding → Engineering' },
+          { label: 'Ack Required', value: 'Yes' },
+          { label: 'Owner', value: 'Engineering Manager' },
+          { label: 'Updated', value: '2026-04-20 09:50 AM' },
+        ],
         actions: ['Acknowledge', 'Open Linked Thread'],
       },
       {
@@ -90,6 +132,12 @@ const lanes = {
         meta: ['Open', 'Stalled'],
         tags: ['HOF-00026', 'Meeting'],
         copy: 'A stalled handoff should stand out immediately because transfer failure is often where real flow problems start to compound.',
+        details: [
+          { label: 'Transfer', value: 'Assembly → Welding' },
+          { label: 'Ack Required', value: 'Yes' },
+          { label: 'Owner', value: 'Assembly Lead' },
+          { label: 'Updated', value: '2026-04-20 10:05 AM' },
+        ],
         actions: ['Confirm Ownership', 'Open Handoff'],
       },
       {
@@ -97,6 +145,12 @@ const lanes = {
         meta: ['Acknowledged', 'Fresh Open'],
         tags: ['HOF-00028', 'Quality'],
         copy: 'Acknowledged handoffs remain visible, but calmer, so users can still trace the transfer path without losing the open work focus.',
+        details: [
+          { label: 'Transfer', value: 'Welding → Quality' },
+          { label: 'Ack Required', value: 'No' },
+          { label: 'Owner', value: 'Quality Lead' },
+          { label: 'Updated', value: '2026-04-20 10:18 AM' },
+        ],
         actions: ['Open Handoff', 'View History'],
       },
     ],
@@ -117,6 +171,12 @@ const lanes = {
         meta: ['Open', 'High Priority'],
         tags: ['THR-00018', 'HOF-00021'],
         copy: 'Laser and Quality are already attached, so discussion stays connected to the linked handoff and the actual production issue.',
+        details: [
+          { label: 'Unread', value: '4 replies' },
+          { label: 'Participants', value: 'Welding, Laser, Quality' },
+          { label: 'Owner', value: 'Welding Supervisor' },
+          { label: 'Updated', value: '2026-04-20 10:32 AM' },
+        ],
         actions: ['Open Thread', 'Open Handoff'],
       },
       {
@@ -124,6 +184,12 @@ const lanes = {
         meta: ['Active', 'Critical'],
         tags: ['THR-00021', 'Escalation'],
         copy: 'Leadership-visible discussion should stay tied to the escalation object and current owner so action does not get lost.',
+        details: [
+          { label: 'Unread', value: '2 replies' },
+          { label: 'Participants', value: 'Production, Engineering' },
+          { label: 'Owner', value: 'Production Manager' },
+          { label: 'Updated', value: '2026-04-20 10:44 AM' },
+        ],
         actions: ['Open Thread', 'Open Escalation'],
       },
       {
@@ -131,6 +197,12 @@ const lanes = {
         meta: ['Waiting', 'Unread'],
         tags: ['THR-00019', 'MTG-00011'],
         copy: 'Meeting communication belongs in the same operating layer as prep readiness and acknowledgment status.',
+        details: [
+          { label: 'Unread', value: '1 reply' },
+          { label: 'Participants', value: 'Production, Welding' },
+          { label: 'Owner', value: 'Production Manager' },
+          { label: 'Updated', value: '2026-04-20 10:57 AM' },
+        ],
         actions: ['Open Thread', 'Open Meeting'],
       },
     ],
@@ -151,6 +223,12 @@ const lanes = {
         meta: ['Pending', 'Warning'],
         tags: ['MTG-00011', 'THR-00018'],
         copy: 'Cross-functional review should stay linked to both the active thread and the originating report so attendees arrive with the same context.',
+        details: [
+          { label: 'Prep', value: 'Warning' },
+          { label: 'Unread Prep', value: '2 items' },
+          { label: 'Owner', value: 'Production Manager' },
+          { label: 'Scheduled', value: '2026-04-21 08:00 AM' },
+        ],
         actions: ['Acknowledge', 'Open Meeting'],
       },
       {
@@ -158,6 +236,12 @@ const lanes = {
         meta: ['Pending', 'Critical'],
         tags: ['MTG-00013', 'LIR-P-017'],
         copy: 'Escalated meetings should surface unread prep and linked reports up front so leadership sees the issue before the room starts talking.',
+        details: [
+          { label: 'Prep', value: 'Critical' },
+          { label: 'Unread Prep', value: '3 items' },
+          { label: 'Owner', value: 'Executive Team' },
+          { label: 'Scheduled', value: '2026-04-21 10:00 AM' },
+        ],
         actions: ['Acknowledge', 'Open Prep'],
       },
       {
@@ -165,6 +249,12 @@ const lanes = {
         meta: ['Acknowledged', 'Today'],
         tags: ['MTG-00012', 'Department'],
         copy: 'Department meetings stay in the same system so prep, follow-up, and linked work do not split across separate tools.',
+        details: [
+          { label: 'Prep', value: 'Low' },
+          { label: 'Unread Prep', value: '0 items' },
+          { label: 'Owner', value: 'Welding Supervisor' },
+          { label: 'Scheduled', value: '2026-04-20 01:30 PM' },
+        ],
         actions: ['Open Meeting', 'Open Prep'],
       },
     ],
@@ -175,7 +265,7 @@ function injectBridgeStyles() {
   if (document.querySelector('link[data-ai-connect-bridge="true"]')) return;
   const link = document.createElement('link');
   link.rel = 'stylesheet';
-  link.href = '/applied-intelligence-app/assets/runtime-bridge/ai-connect-bridge.css';
+  link.href = `/applied-intelligence-app/assets/runtime-bridge/ai-connect-bridge.css?v=${Date.now()}`;
   link.dataset.aiConnectBridge = 'true';
   document.head.appendChild(link);
 }
@@ -227,19 +317,39 @@ function buildMetric(metric) {
   `;
 }
 
+function buildDetail(detail) {
+  return `
+    <div class="ai-connect-detail-item">
+      <div class="ai-connect-detail-label">${detail.label}</div>
+      <div class="ai-connect-detail-value">${detail.value}</div>
+    </div>
+  `;
+}
+
 function buildCard(card) {
+  const meta = card.meta?.length
+    ? `<div class="ai-connect-card-meta">${card.meta.map((item) => `<span class="ai-connect-chip">${item}</span>`).join('')}</div>`
+    : '';
+
+  const tags = card.tags?.length
+    ? `<div class="ai-connect-card-tags">${card.tags.map((item) => `<span class="ai-connect-chip subtle">${item}</span>`).join('')}</div>`
+    : '';
+
+  const details = card.details?.length
+    ? `<div class="ai-connect-detail-grid">${card.details.map(buildDetail).join('')}</div>`
+    : '';
+
   return `
     <article class="ai-connect-card">
       <div class="ai-connect-card-top">
-        <h3 class="ai-connect-card-title">${card.title}</h3>
-        <div class="ai-connect-card-meta">
-          ${card.meta.map((item) => `<span class="ai-connect-chip">${item}</span>`).join('')}
+        <div class="ai-connect-card-title-wrap">
+          <h3 class="ai-connect-card-title">${card.title}</h3>
+          ${tags}
         </div>
-      </div>
-      <div class="ai-connect-card-tags">
-        ${card.tags.map((item) => `<span class="ai-connect-chip">${item}</span>`).join('')}
+        ${meta}
       </div>
       <p class="ai-connect-card-copy">${card.copy}</p>
+      ${details}
       <div class="ai-connect-card-actions">
         ${card.actions.map((action, index) => `<button type="button" class="ai-connect-button ${index === 0 ? 'primary' : ''}">${action}</button>`).join('')}
       </div>
