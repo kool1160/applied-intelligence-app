@@ -2,6 +2,24 @@
 
 All notable changes to the Applied Intelligence app should be documented in this file.
 
+## 2026-04-23
+
+### Added
+- Added `docs/master-app-handoff-2026-04-23.md` as the current full project/runtime handoff for the app.
+- Added `docs/runtime-update-packaging-handoff-2026-04-23.md` as the current update-packaging reference for the next internal runtime-focused release.
+
+### Changed
+- Updated `README.md` to reflect the current runtime direction beyond shell-only work.
+- Updated repo direction to document Execution Spine as the governing execution model beneath AI-Connect.
+- Updated repo direction to document the work-linked thread layer as communication attached to live execution objects.
+- Documented current lane alignment around execution objects, handoffs, alerts, work-linked threads, and meetings.
+- Documented the current validation-first update path for the next internal release.
+
+### Notes
+- This update is primarily a documentation and handoff pass.
+- It captures the current runtime direction established in working build/planning chats, especially around Execution Spine, work-linked thread behavior, and scenario-based validation.
+- Runtime implementation should continue to follow the documented execution-to-thread relationship and should avoid detached parallel behavior.
+
 ## 2026-04-20
 
 ### Changed
