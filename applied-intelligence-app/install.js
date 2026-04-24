@@ -1,7 +1,6 @@
 const BRAND_ICON = '/assets/brand/applied-intelligence-icon.svg';
 const BRAND_LAUNCH = '/assets/brand/applied-intelligence-launch.svg';
-const BRAND_HAT_SET = '/assets/brand/applied-intelligence-hat-icon-set.svg';
-const LAUNCH_SESSION_KEY = 'applied-intelligence-brand-launch-v2';
+const LAUNCH_SESSION_KEY = 'applied-intelligence-brand-launch-v3';
 
 function applyRuntimeMobileButtonFix() {
   const existing = document.querySelector('[data-runtime-mobile-button-fix]');
@@ -52,28 +51,30 @@ function applyBrandRuntime() {
     style.textContent = `
       .topWrap.ai-brand-shell {
         position: relative !important;
-        padding-left: 86px !important;
-        min-height: 82px !important;
+        padding-left: 16px !important;
+        min-height: auto !important;
+        overflow: hidden !important;
       }
-      .aiBrandMark {
-        position: absolute;
-        left: 16px;
-        top: 50%;
-        width: 56px;
-        height: 56px;
-        transform: translateY(-50%);
-        border-radius: 18px;
-        object-fit: contain;
-        filter: drop-shadow(0 0 16px rgba(120,187,255,.34));
-        pointer-events: none;
+      .topWrap.ai-brand-shell h1 {
+        max-width: 100% !important;
+        white-space: nowrap !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
       }
+      .topWrap.ai-brand-shell .sub {
+        max-width: 100% !important;
+        white-space: nowrap !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+      }
+      .aiBrandMark { display: none !important; }
       .aiHeroMark {
         position: absolute;
         right: 18px;
         top: 18px;
         width: 76px;
         height: 76px;
-        opacity: .24;
+        opacity: .18;
         object-fit: contain;
         filter: drop-shadow(0 0 18px rgba(120,187,255,.28));
         pointer-events: none;
@@ -91,7 +92,7 @@ function applyBrandRuntime() {
       .aiBrandAssetCard img {
         display: block;
         width: 100%;
-        max-height: 420px;
+        max-height: 320px;
         object-fit: contain;
         border-radius: 24px;
         background: rgba(2,7,17,.42);
@@ -131,24 +132,27 @@ function applyBrandRuntime() {
         .aiBrandAssetPreview { grid-template-columns: 360px 1fr; align-items: stretch; }
       }
       @media (max-width: 700px) {
-        .topWrap.ai-brand-shell { padding-left: 76px !important; min-height: 76px !important; }
-        .aiBrandMark { width: 48px; height: 48px; border-radius: 16px; }
-        .aiHeroMark { width: 62px; height: 62px; right: 14px; top: 14px; opacity: .2; }
+        .topWrap.ai-brand-shell { padding-left: 14px !important; padding-right: 14px !important; }
+        .topWrap.ai-brand-shell h1 { font-size: clamp(29px, 8.3vw, 36px) !important; }
+        .topWrap.ai-brand-shell .sub { font-size: 13px !important; letter-spacing: .01em !important; }
+        .aiHeroMark { width: 58px; height: 58px; right: 12px; top: 12px; opacity: .16; }
       }
     `;
     document.head.appendChild(style);
   }
 
   const topWrap = document.querySelector('.topWrap');
-  if (topWrap && !topWrap.querySelector('.aiBrandMark')) {
+  if (topWrap) {
     topWrap.classList.add('ai-brand-shell');
-    const img = document.createElement('img');
-    img.className = 'aiBrandMark';
-    img.src = BRAND_ICON;
-    img.alt = '';
-    img.decoding = 'async';
-    topWrap.appendChild(img);
+    const oldHeaderMark = topWrap.querySelector('.aiBrandMark');
+    if (oldHeaderMark) oldHeaderMark.remove();
   }
+
+  const subtitle = document.querySelector('.topWrap .sub');
+  if (subtitle) subtitle.textContent = 'Standardize to Optimize';
+
+  const heroMini = document.querySelector('#home .heroMini');
+  if (heroMini) heroMini.textContent = 'APPLIED INTELLIGENCE FRAMEWORK';
 
   const hero = document.querySelector('#home .hero');
   if (hero && !hero.querySelector('.aiHeroMark')) {
@@ -161,23 +165,21 @@ function applyBrandRuntime() {
   }
 
   const morePanel = document.querySelector('#more .glass.panel');
-  if (morePanel && !morePanel.querySelector('[data-brand-assets-panel]')) {
+  const oldBrandPanel = document.querySelector('[data-brand-assets-panel]');
+  if (oldBrandPanel) oldBrandPanel.remove();
+
+  if (morePanel && !morePanel.querySelector('[data-app-identity-panel]')) {
     const section = document.createElement('div');
     section.className = 'frameworkSection';
-    section.setAttribute('data-brand-assets-panel', 'true');
+    section.setAttribute('data-app-identity-panel', 'true');
     section.innerHTML = `
-      <h3 class="frameworkSectionTitle">Brand Assets</h3>
-      <div class="frameworkSectionSub">Locked Applied Intelligence identity assets for the app icon, launch screen, and hat / patch direction.</div>
+      <h3 class="frameworkSectionTitle">App Identity</h3>
+      <div class="frameworkSectionSub">Locked Applied Intelligence app mark and launch identity.</div>
       <div class="aiBrandAssetPreview">
         <div class="aiBrandAssetCard">
           <div class="aiBrandAssetTitle">App Icon</div>
           <div class="aiBrandAssetText">Primary Applied Intelligence icon used as the in-app identity mark.</div>
           <img src="${BRAND_ICON}" alt="Applied Intelligence app icon" loading="lazy" />
-        </div>
-        <div class="aiBrandAssetCard">
-          <div class="aiBrandAssetTitle">Hat Icon Set</div>
-          <div class="aiBrandAssetText">Embroidery, one-color, rubber patch, and tonal patch directions for future hats and physical branding.</div>
-          <img src="${BRAND_HAT_SET}" alt="Applied Intelligence hat icon set" loading="lazy" />
         </div>
       </div>
     `;
