@@ -1,35 +1,49 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Applied Intelligence icon">
   <defs>
-    <radialGradient id="bg" cx="50%" cy="42%" r="70%">
-      <stop offset="0%" stop-color="#10265c"/>
-      <stop offset="52%" stop-color="#061638"/>
+    <radialGradient id="bg" cx="50%" cy="42%" r="74%">
+      <stop offset="0%" stop-color="#10265f"/>
+      <stop offset="52%" stop-color="#061437"/>
       <stop offset="100%" stop-color="#020711"/>
     </radialGradient>
-    <linearGradient id="edge" x1="0" x2="1" y1="0" y2="1">
-      <stop offset="0%" stop-color="#7ed0ff"/>
-      <stop offset="48%" stop-color="#005dff"/>
-      <stop offset="100%" stop-color="#9ee7ff"/>
+    <linearGradient id="edge" x1="36" y1="42" x2="474" y2="478" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#96e2ff"/>
+      <stop offset="42%" stop-color="#1877ff"/>
+      <stop offset="72%" stop-color="#005cff"/>
+      <stop offset="100%" stop-color="#9df0ff"/>
     </linearGradient>
-    <linearGradient id="metal" x1="0" x2="1" y1="0" y2="1">
+    <linearGradient id="metal" x1="118" y1="114" x2="398" y2="374" gradientUnits="userSpaceOnUse">
       <stop offset="0%" stop-color="#ffffff"/>
-      <stop offset="55%" stop-color="#dce9ff"/>
-      <stop offset="100%" stop-color="#8fb5ff"/>
+      <stop offset="46%" stop-color="#eef5ff"/>
+      <stop offset="100%" stop-color="#9bbcff"/>
     </linearGradient>
-    <filter id="glow" x="-45%" y="-45%" width="190%" height="190%">
-      <feGaussianBlur stdDeviation="9" result="blur"/>
-      <feColorMatrix in="blur" type="matrix" values="0 0 0 0 0.05 0 0 0 0 0.45 0 0 0 0 1 0 0 0 .95 0" result="blueGlow"/>
-      <feMerge><feMergeNode in="blueGlow"/><feMergeNode in="SourceGraphic"/></feMerge>
+    <linearGradient id="metalDark" x1="188" y1="184" x2="338" y2="350" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#fbfdff"/>
+      <stop offset="100%" stop-color="#b8ccff"/>
+    </linearGradient>
+    <filter id="outerGlow" x="-45%" y="-45%" width="190%" height="190%">
+      <feGaussianBlur stdDeviation="11" result="blur"/>
+      <feColorMatrix in="blur" type="matrix" values="0 0 0 0 .02 0 0 0 0 .35 0 0 0 0 1 0 0 0 .9 0" result="glow"/>
+      <feMerge><feMergeNode in="glow"/><feMergeNode in="SourceGraphic"/></feMerge>
     </filter>
-    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
-      <feDropShadow dx="0" dy="8" stdDeviation="8" flood-color="#000814" flood-opacity=".55"/>
+    <filter id="softShadow" x="-25%" y="-25%" width="150%" height="150%">
+      <feDropShadow dx="0" dy="8" stdDeviation="7" flood-color="#000814" flood-opacity=".62"/>
     </filter>
   </defs>
-  <rect x="30" y="30" width="452" height="452" rx="104" fill="url(#bg)" stroke="url(#edge)" stroke-width="9" filter="url(#glow)"/>
-  <path d="M92 302 C132 230 184 126 233 82 C266 88 291 119 312 155" fill="none" stroke="url(#metal)" stroke-width="34" stroke-linecap="round" filter="url(#shadow)"/>
-  <path d="M100 330 C180 290 287 290 416 346" fill="none" stroke="url(#metal)" stroke-width="34" stroke-linecap="round" filter="url(#shadow)"/>
-  <path d="M342 178 L428 342" fill="none" stroke="url(#metal)" stroke-width="34" stroke-linecap="round" filter="url(#shadow)"/>
-  <text x="201" y="304" font-family="Arial Black, Inter, system-ui, sans-serif" font-size="154" font-weight="900" fill="url(#metal)" letter-spacing="-13" filter="url(#shadow)">AI</text>
-  <circle cx="132" cy="278" r="27" fill="url(#metal)" stroke="#eef6ff" stroke-width="4" filter="url(#shadow)"/>
-  <circle cx="352" cy="178" r="29" fill="url(#metal)" stroke="#eef6ff" stroke-width="4" filter="url(#shadow)"/>
-  <circle cx="332" cy="326" r="27" fill="url(#metal)" stroke="#eef6ff" stroke-width="4" filter="url(#shadow)"/>
+
+  <rect x="32" y="32" width="448" height="448" rx="108" fill="url(#bg)"/>
+  <rect x="38" y="38" width="436" height="436" rx="101" fill="none" stroke="url(#edge)" stroke-width="9" filter="url(#outerGlow)"/>
+  <rect x="52" y="52" width="408" height="408" rx="88" fill="none" stroke="rgba(255,255,255,.12)" stroke-width="2"/>
+
+  <g filter="url(#softShadow)">
+    <path d="M104 304 C138 240 184 142 232 101 C266 109 293 141 315 174" fill="none" stroke="url(#metal)" stroke-width="34" stroke-linecap="round"/>
+    <path d="M111 333 C181 294 284 291 407 346" fill="none" stroke="url(#metal)" stroke-width="34" stroke-linecap="round"/>
+    <path d="M341 188 L419 342" fill="none" stroke="url(#metal)" stroke-width="34" stroke-linecap="round"/>
+
+    <path fill="url(#metalDark)" fill-rule="evenodd" d="M202 326 L246 190 L290 326 H257 L250 299 H222 L214 326 Z M229 274 H244 L237 242 Z"/>
+    <rect x="303" y="202" width="34" height="124" rx="10" fill="url(#metalDark)"/>
+
+    <circle cx="134" cy="282" r="27" fill="url(#metal)" stroke="#f6fbff" stroke-width="4"/>
+    <circle cx="348" cy="188" r="28" fill="url(#metal)" stroke="#f6fbff" stroke-width="4"/>
+    <circle cx="328" cy="326" r="27" fill="url(#metal)" stroke="#f6fbff" stroke-width="4"/>
+  </g>
 </svg>
