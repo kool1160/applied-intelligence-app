@@ -1,4 +1,4 @@
-const CACHE_NAME = 'applied-intelligence-v8-shell-2026-04-24-brand-01';
+const CACHE_NAME = 'applied-intelligence-v8-shell-2026-04-24-approved-primary-icon';
 
 const APP_SHELL = [
   '/applied-intelligence-app/',
@@ -10,9 +10,7 @@ const APP_SHELL = [
   '/applied-intelligence-app/assets/icons/apple-touch-icon.png',
   '/applied-intelligence-app/assets/icons/icon-192.png',
   '/applied-intelligence-app/assets/icons/icon-512.png',
-  '/applied-intelligence-app/assets/brand/applied-intelligence-icon.svg',
-  '/applied-intelligence-app/assets/brand/applied-intelligence-launch.svg',
-  '/applied-intelligence-app/assets/brand/applied-intelligence-hat-icon-set.svg'
+  '/applied-intelligence-app/assets/brand/applied-intelligence-primary-icon.png?v=20260424-approved-primary'
 ];
 
 self.addEventListener('install', (event) => {
@@ -35,24 +33,26 @@ self.addEventListener('activate', (event) => {
   self.clients.claim();
 });
 
+self.addEventListener('message', (event) => {
+  if (event.data?.type === 'SKIP_WAITING') {
+    self.skipWaiting();
+  }
+});
+
 self.addEventListener('fetch', (event) => {
   if (event.request.method !== 'GET') return;
 
   event.respondWith(
-    caches.match(event.request).then((cached) => {
-      const networkFetch = fetch(event.request)
-        .then((response) => {
-          if (!response || response.status !== 200 || response.type !== 'basic') {
-            return response;
-          }
-
-          const clone = response.clone();
-          caches.open(CACHE_NAME).then((cache) => cache.put(event.request, clone));
+    fetch(event.request)
+      .then((response) => {
+        if (!response || response.status !== 200 || response.type !== 'basic') {
           return response;
-        })
-        .catch(() => cached);
+        }
 
-      return cached || networkFetch;
-    })
+        const clone = response.clone();
+        caches.open(CACHE_NAME).then((cache) => cache.put(event.request, clone));
+        return response;
+      })
+      .catch(() => caches.match(event.request))
   );
 });
