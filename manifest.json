@@ -2,7 +2,7 @@
   "id": "/applied-intelligence-app/",
   "name": "Applied Intelligence",
   "short_name": "Applied AI",
-  "description": "Applied Intelligence V8 with AI-Trace, AI-CIS, dashboard views, and install-ready mobile behavior.",
+  "description": "Applied Intelligence V8 with AI-Trace, AI-CIS, dashboard views, runtime validation, and locked brand assets.",
   "start_url": "/applied-intelligence-app/?source=pwa",
   "scope": "/applied-intelligence-app/",
   "display": "standalone",
@@ -11,14 +11,38 @@
   "orientation": "any",
   "icons": [
     {
+      "src": "/applied-intelligence-app/assets/brand/applied-intelligence-icon.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
       "src": "/applied-intelligence-app/assets/icons/icon-192.png",
       "sizes": "192x192",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any maskable"
     },
     {
       "src": "/applied-intelligence-app/assets/icons/icon-512.png",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/applied-intelligence-app/assets/brand/applied-intelligence-launch.svg",
+      "sizes": "1170x2532",
+      "type": "image/svg+xml",
+      "form_factor": "narrow",
+      "label": "Applied Intelligence launch screen"
+    },
+    {
+      "src": "/applied-intelligence-app/assets/brand/applied-intelligence-hat-icon-set.svg",
+      "sizes": "1200x900",
+      "type": "image/svg+xml",
+      "form_factor": "wide",
+      "label": "Applied Intelligence hat icon set"
     }
   ]
 }
