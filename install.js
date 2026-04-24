@@ -1,10 +1,11 @@
+const APP_BASE = '/applied-intelligence-app/';
+const SERVICE_WORKER_PATH = `${APP_BASE}sw.js`;
 const APPLE_TOUCH_ICON = '/applied-intelligence-app/assets/icons/apple-touch-icon.png';
 const FAVICON_32 = '/applied-intelligence-app/assets/icons/favicon-32.png';
 const FAVICON_16 = '/applied-intelligence-app/assets/icons/favicon-16.png';
-const BRAND_ICON = '/applied-intelligence-app/assets/brand/applied-intelligence-icon.svg';
-const BRAND_LAUNCH = '/applied-intelligence-app/assets/brand/applied-intelligence-launch.svg';
-const BRAND_HAT_SET = '/applied-intelligence-app/assets/brand/applied-intelligence-hat-icon-set.svg';
-const LAUNCH_SESSION_KEY = 'applied-intelligence-brand-launch-v1';
+const BRAND_ICON = '/applied-intelligence-app/assets/brand/applied-intelligence-primary-icon.png?v=20260424-approved-primary';
+
+let deferredPrompt = null;
 
 function ensureLink(rel, href, sizes = null, type = null) {
   let link = document.querySelector(`link[rel="${rel}"]`);
@@ -14,151 +15,9 @@ function ensureLink(rel, href, sizes = null, type = null) {
     document.head.appendChild(link);
   }
   link.href = href;
-  if (sizes) {
-    link.sizes = sizes;
-  }
-  if (type) {
-    link.type = type;
-  }
+  if (sizes) link.sizes = sizes;
+  if (type) link.type = type;
   return link;
-}
-
-function ensureBrandRuntimeStyles() {
-  if (document.getElementById('applied-intelligence-brand-runtime-styles')) {
-    return;
-  }
-
-  const style = document.createElement('style');
-  style.id = 'applied-intelligence-brand-runtime-styles';
-  style.textContent = `
-    .topWrap.ai-brand-shell {
-      position: relative;
-      padding-left: 86px;
-      min-height: 82px;
-    }
-
-    .aiBrandMark {
-      position: absolute;
-      left: 16px;
-      top: 50%;
-      width: 56px;
-      height: 56px;
-      transform: translateY(-50%);
-      border-radius: 18px;
-      object-fit: contain;
-      filter: drop-shadow(0 0 16px rgba(120,187,255,.34));
-      pointer-events: none;
-    }
-
-    .aiHeroMark {
-      position: absolute;
-      right: 18px;
-      top: 18px;
-      width: 76px;
-      height: 76px;
-      opacity: .22;
-      object-fit: contain;
-      filter: drop-shadow(0 0 18px rgba(120,187,255,.28));
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    .hero > *:not(.aiHeroMark) {
-      position: relative;
-      z-index: 1;
-    }
-
-    .aiBrandAssetPreview {
-      margin-top: 16px;
-      display: grid;
-      gap: 16px;
-    }
-
-    .aiBrandAssetCard {
-      padding: 18px;
-      border-radius: 28px;
-      background: linear-gradient(180deg, rgba(12,24,45,.96), rgba(5,12,24,.98));
-      border: 1px solid rgba(151,182,255,.12);
-      box-shadow: 0 18px 42px rgba(0,0,0,.30);
-    }
-
-    .aiBrandAssetCard img {
-      display: block;
-      width: 100%;
-      max-height: 420px;
-      object-fit: contain;
-      border-radius: 24px;
-      background: rgba(2,7,17,.42);
-      border: 1px solid rgba(151,182,255,.12);
-    }
-
-    .aiBrandAssetTitle {
-      margin: 0 0 6px;
-      font-size: 18px;
-      font-weight: 900;
-      letter-spacing: -.03em;
-      color: #eef4ff;
-    }
-
-    .aiBrandAssetText {
-      margin-bottom: 14px;
-      font-size: 13px;
-      line-height: 1.45;
-      color: #b8c8e8;
-    }
-
-    .aiLaunchScreen {
-      position: fixed;
-      inset: 0;
-      z-index: 99999;
-      display: grid;
-      place-items: center;
-      background: #020711;
-      opacity: 1;
-      transition: opacity .38s ease;
-    }
-
-    .aiLaunchScreen.is-hiding {
-      opacity: 0;
-      pointer-events: none;
-    }
-
-    .aiLaunchScreen img {
-      width: min(100vw, 520px);
-      height: min(100dvh, 1128px);
-      object-fit: cover;
-      display: block;
-    }
-
-    @media (min-width: 920px) {
-      .aiBrandAssetPreview {
-        grid-template-columns: 360px 1fr;
-        align-items: stretch;
-      }
-    }
-
-    @media (max-width: 700px) {
-      .topWrap.ai-brand-shell {
-        padding-left: 76px;
-        min-height: 76px;
-      }
-
-      .aiBrandMark {
-        width: 48px;
-        height: 48px;
-        border-radius: 16px;
-      }
-
-      .aiHeroMark {
-        width: 62px;
-        height: 62px;
-        right: 14px;
-        top: 14px;
-        opacity: .18;
-      }
-    }
-  `;
-  document.head.appendChild(style);
 }
 
 function applyApprovedAppIcon() {
@@ -176,116 +35,102 @@ function applyApprovedAppIcon() {
   favicon16.type = 'image/png';
 
   ensureLink('shortcut icon', FAVICON_32, null, 'image/png');
-  ensureLink('preload', BRAND_ICON, null, 'image/svg+xml').as = 'image';
-  ensureLink('preload', BRAND_LAUNCH, null, 'image/svg+xml').as = 'image';
+  ensureLink('preload', BRAND_ICON, null, 'image/png').as = 'image';
 }
 
-function injectBrandHeader() {
-  const topWrap = document.querySelector('.topWrap');
-  if (topWrap && !topWrap.querySelector('.aiBrandMark')) {
-    topWrap.classList.add('ai-brand-shell');
-    const img = document.createElement('img');
-    img.className = 'aiBrandMark';
-    img.src = BRAND_ICON;
-    img.alt = '';
-    img.decoding = 'async';
-    topWrap.appendChild(img);
-  }
+function applyHeaderStyles() {
+  if (document.getElementById('applied-intelligence-approved-visual-pass')) return;
 
-  const hero = document.querySelector('#home .hero');
-  if (hero && !hero.querySelector('.aiHeroMark')) {
-    const img = document.createElement('img');
-    img.className = 'aiHeroMark';
-    img.src = BRAND_ICON;
-    img.alt = '';
-    img.decoding = 'async';
-    hero.appendChild(img);
-  }
-}
-
-function injectBrandAssetPanel() {
-  const morePanel = document.querySelector('#more .glass.panel');
-  if (!morePanel || morePanel.querySelector('[data-brand-assets-panel]')) {
-    return;
-  }
-
-  const section = document.createElement('div');
-  section.className = 'frameworkSection';
-  section.setAttribute('data-brand-assets-panel', 'true');
-  section.innerHTML = `
-    <h3 class="frameworkSectionTitle">Brand Assets</h3>
-    <div class="frameworkSectionSub">Locked Applied Intelligence identity assets for the app icon, launch screen, and hat / patch direction.</div>
-    <div class="aiBrandAssetPreview">
-      <div class="aiBrandAssetCard">
-        <div class="aiBrandAssetTitle">App Icon</div>
-        <div class="aiBrandAssetText">Primary Applied Intelligence icon used as the in-app identity mark.</div>
-        <img src="${BRAND_ICON}" alt="Applied Intelligence app icon" loading="lazy" />
-      </div>
-      <div class="aiBrandAssetCard">
-        <div class="aiBrandAssetTitle">Hat Icon Set</div>
-        <div class="aiBrandAssetText">Embroidery, one-color, rubber patch, and tonal patch directions for future hats and physical branding.</div>
-        <img src="${BRAND_HAT_SET}" alt="Applied Intelligence hat icon set" loading="lazy" />
-      </div>
-    </div>
+  const style = document.createElement('style');
+  style.id = 'applied-intelligence-approved-visual-pass';
+  style.textContent = `
+    [data-ios-install-hint], .ios-install-hint { display: none !important; }
+    .aiHeroMark, .aiBrandMark { display: none !important; }
+    .topWrap.ai-approved-header {
+      position: relative !important;
+      min-height: 100px !important;
+      padding: 14px 84px 14px 14px !important;
+      overflow: hidden !important;
+      border-color: rgba(151,207,255,.30) !important;
+      background: radial-gradient(circle at 88% 48%, rgba(120,187,255,.20), transparent 0 31%), linear-gradient(180deg, rgba(18,35,64,.58), rgba(5,12,24,.66)) !important;
+      box-shadow: 0 20px 48px rgba(0,0,0,.30), 0 0 28px rgba(120,187,255,.14), inset 0 1px 0 rgba(255,255,255,.10) !important;
+    }
+    .topWrap.ai-approved-header > *:not(.aiHeaderLogo) { position: relative; z-index: 1; }
+    .topWrap.ai-approved-header h1 {
+      max-width: 100% !important;
+      white-space: nowrap !important;
+      overflow: hidden !important;
+      text-overflow: ellipsis !important;
+      font-size: clamp(24px, 6.35vw, 29px) !important;
+      line-height: .98 !important;
+      letter-spacing: -.055em !important;
+    }
+    .topWrap.ai-approved-header .sub {
+      margin-top: 7px !important;
+      max-width: 100% !important;
+      white-space: nowrap !important;
+      overflow: hidden !important;
+      text-overflow: ellipsis !important;
+      color: #c8d8f2 !important;
+      font-weight: 700 !important;
+      font-size: clamp(11px, 3.15vw, 13px) !important;
+      line-height: 1.2 !important;
+      letter-spacing: -.03em !important;
+    }
+    .aiHeaderLogo {
+      position: absolute;
+      right: 14px;
+      top: 50%;
+      z-index: 2;
+      width: 56px;
+      height: 56px;
+      transform: translateY(-50%);
+      border-radius: 18px;
+      object-fit: contain;
+      filter: drop-shadow(0 0 20px rgba(120,187,255,.48));
+      pointer-events: none;
+    }
+    @media (max-width: 380px) {
+      .topWrap.ai-approved-header { padding-right: 76px !important; }
+      .topWrap.ai-approved-header h1 { font-size: 23px !important; }
+      .topWrap.ai-approved-header .sub { font-size: 10.8px !important; }
+      .aiHeaderLogo { width: 52px; height: 52px; }
+    }
   `;
-  morePanel.appendChild(section);
+  document.head.appendChild(style);
 }
 
-function showLaunchScreenOnce() {
-  if (window.sessionStorage?.getItem(LAUNCH_SESSION_KEY) === 'shown') {
-    return;
+function applyHeaderBranding() {
+  const topWrap = document.querySelector('.topWrap');
+  if (!topWrap) return;
+
+  topWrap.classList.add('ai-approved-header');
+
+  const subtitle = topWrap.querySelector('.sub');
+  if (subtitle) subtitle.textContent = 'Connected manufacturing intelligence.';
+
+  topWrap.querySelectorAll('.aiBrandMark, .aiHeroMark').forEach((mark) => mark.remove());
+
+  let logo = topWrap.querySelector('.aiHeaderLogo');
+  if (!logo) {
+    logo = document.createElement('img');
+    logo.className = 'aiHeaderLogo';
+    logo.alt = '';
+    logo.decoding = 'async';
+    topWrap.appendChild(logo);
   }
+  logo.src = BRAND_ICON;
 
-  try {
-    window.sessionStorage?.setItem(LAUNCH_SESSION_KEY, 'shown');
-  } catch {
-    // Non-critical. Continue without session persistence.
-  }
-
-  const launch = document.createElement('div');
-  launch.className = 'aiLaunchScreen';
-  launch.setAttribute('aria-hidden', 'true');
-  launch.innerHTML = `<img src="${BRAND_LAUNCH}" alt="" decoding="async" />`;
-  document.body.appendChild(launch);
-
-  window.setTimeout(() => {
-    launch.classList.add('is-hiding');
-    window.setTimeout(() => launch.remove(), 420);
-  }, 1050);
+  const heroMini = document.querySelector('#home .heroMini');
+  if (heroMini) heroMini.textContent = 'APPLIED INTELLIGENCE FRAMEWORK';
 }
-
-let deferredPrompt = null;
-
-window.addEventListener('beforeinstallprompt', (event) => {
-  event.preventDefault();
-  deferredPrompt = event;
-  document.documentElement.classList.add('can-install');
-
-  const btn = document.querySelector('[data-install-app]');
-  if (btn) {
-    btn.hidden = false;
-  }
-});
-
-window.addEventListener('appinstalled', () => {
-  deferredPrompt = null;
-  document.documentElement.classList.remove('can-install');
-
-  const btn = document.querySelector('[data-install-app]');
-  if (btn) {
-    btn.hidden = true;
-  }
-});
 
 export async function registerServiceWorker() {
-  if (!('serviceWorker' in navigator)) {
-    return;
-  }
+  if (!('serviceWorker' in navigator)) return;
 
   try {
-    await navigator.serviceWorker.register('/applied-intelligence-app/sw.js', {
-      scope: '/applied-intelligence-app/'
-    });
+    const registration = await navigator.serviceWorker.register(SERVICE_WORKER_PATH, { scope: APP_BASE });
+    if (registration.waiting) registration.waiting.postMessage({ type: 'SKIP_WAITING' });
     console.log('Service worker registered');
   } catch (error) {
     console.error('Service worker registration failed', error);
@@ -293,9 +138,7 @@ export async function registerServiceWorker() {
 }
 
 export async function triggerInstall() {
-  if (!deferredPrompt) {
-    return false;
-  }
+  if (!deferredPrompt) return false;
 
   deferredPrompt.prompt();
   const result = await deferredPrompt.userChoice;
@@ -316,12 +159,9 @@ export function isStandalone() {
 
 export function showIOSInstallHint() {
   const hint = document.querySelector('[data-ios-install-hint]');
-  if (!hint) {
-    return;
-  }
-
-  const shouldShow = isiOS() && !isStandalone();
-  hint.hidden = !shouldShow;
+  if (!hint) return;
+  hint.hidden = true;
+  hint.setAttribute('aria-hidden', 'true');
 }
 
 async function initOptionalAIConnectRuntimeBridge() {
@@ -335,12 +175,23 @@ async function initOptionalAIConnectRuntimeBridge() {
   }
 }
 
+window.addEventListener('beforeinstallprompt', (event) => {
+  event.preventDefault();
+  deferredPrompt = event;
+  const btn = document.querySelector('[data-install-app]');
+  if (btn) btn.hidden = true;
+});
+
+window.addEventListener('appinstalled', () => {
+  deferredPrompt = null;
+  const btn = document.querySelector('[data-install-app]');
+  if (btn) btn.hidden = true;
+});
+
 document.addEventListener('DOMContentLoaded', () => {
-  ensureBrandRuntimeStyles();
   applyApprovedAppIcon();
-  injectBrandHeader();
-  injectBrandAssetPanel();
-  showLaunchScreenOnce();
+  applyHeaderStyles();
+  applyHeaderBranding();
   registerServiceWorker();
   showIOSInstallHint();
   initOptionalAIConnectRuntimeBridge();
