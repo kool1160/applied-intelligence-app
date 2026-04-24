@@ -1,6 +1,6 @@
 const APP_BASE = '/applied-intelligence-app/';
 const SERVICE_WORKER_PATH = `${APP_BASE}sw.js`;
-const BRAND_ICON = '/assets/brand/applied-intelligence-icon.svg';
+const BRAND_ICON = '/assets/brand/applied-intelligence-icon.svg?v=20260424-ticket006';
 
 let deferredPrompt = null;
 
@@ -45,7 +45,7 @@ function applyApprovedVisualPass() {
       .topWrap.ai-approved-header {
         position: relative !important;
         min-height: 104px !important;
-        padding: 16px 104px 16px 16px !important;
+        padding: 16px 102px 16px 16px !important;
         overflow: hidden !important;
         border-color: var(--ai-border-blue) !important;
         background:
@@ -88,7 +88,7 @@ function applyApprovedVisualPass() {
         text-overflow: ellipsis !important;
         color: #c8d8f2 !important;
         font-weight: 700 !important;
-        letter-spacing: .01em !important;
+        letter-spacing: -.01em !important;
       }
 
       .aiHeaderLogo {
@@ -257,22 +257,24 @@ function applyApprovedVisualPass() {
 
       @media (max-width: 700px) {
         .topWrap.ai-approved-header {
-          min-height: 98px !important;
-          padding: 14px 90px 14px 14px !important;
+          min-height: 100px !important;
+          padding: 14px 84px 14px 14px !important;
         }
         .topWrap.ai-approved-header h1 {
-          font-size: clamp(25px, 6.65vw, 30px) !important;
+          font-size: clamp(24px, 6.35vw, 29px) !important;
           line-height: .98 !important;
         }
         .topWrap.ai-approved-header .sub {
           margin-top: 7px !important;
-          font-size: 13px !important;
+          font-size: clamp(11px, 3.15vw, 13px) !important;
+          line-height: 1.2 !important;
+          letter-spacing: -.03em !important;
         }
         .aiHeaderLogo {
-          width: 62px;
-          height: 62px;
+          width: 56px;
+          height: 56px;
           right: 14px;
-          border-radius: 20px;
+          border-radius: 18px;
         }
         #home .stats { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
         #home .stat { min-height: 104px !important; padding: 13px !important; }
@@ -281,9 +283,10 @@ function applyApprovedVisualPass() {
       }
 
       @media (max-width: 380px) {
-        .topWrap.ai-approved-header { padding-right: 82px !important; }
-        .topWrap.ai-approved-header h1 { font-size: 24px !important; }
-        .aiHeaderLogo { width: 56px; height: 56px; }
+        .topWrap.ai-approved-header { padding-right: 76px !important; }
+        .topWrap.ai-approved-header h1 { font-size: 23px !important; }
+        .topWrap.ai-approved-header .sub { font-size: 10.8px !important; }
+        .aiHeaderLogo { width: 52px; height: 52px; }
       }
     `;
     document.head.appendChild(style);
