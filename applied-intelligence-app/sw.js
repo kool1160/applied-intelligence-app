@@ -1,16 +1,15 @@
-const CACHE_NAME = 'applied-intelligence-v8-shell-2026-04-24-ticket008-010-png-icon';
+const CACHE_NAME = 'applied-intelligence-v8-shell-2026-04-26-icons-textonly-01';
 
 const APP_SHELL = [
   '/applied-intelligence-app/',
   '/applied-intelligence-app/index.html',
   '/applied-intelligence-app/manifest.json',
   '/applied-intelligence-app/install.js',
-  '/applied-intelligence-app/assets/icons/favicon-16.png',
-  '/applied-intelligence-app/assets/icons/favicon-32.png',
-  '/applied-intelligence-app/assets/icons/apple-touch-icon.png',
-  '/applied-intelligence-app/assets/icons/icon-192.png',
-  '/applied-intelligence-app/assets/icons/icon-512.png',
-  '/assets/icons/icon-512.png?v=20260424-ticket008'
+  '/assets/icons/favicon-16.png',
+  '/assets/icons/favicon-32.png',
+  '/assets/icons/apple-touch-icon.png',
+  '/assets/icons/icon-192.png',
+  '/assets/icons/icon-512.png',
 ];
 
 self.addEventListener('install', (event) => {
