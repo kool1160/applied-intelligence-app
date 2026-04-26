@@ -1,7 +1,7 @@
-const APPLE_TOUCH_ICON = '/applied-intelligence-app/assets/icons/apple-touch-icon.png';
-const FAVICON_32 = '/applied-intelligence-app/assets/icons/favicon-32.png';
-const FAVICON_16 = '/applied-intelligence-app/assets/icons/favicon-16.png';
-const BRAND_ICON = '/applied-intelligence-app/assets/brand/applied-intelligence-icon.svg';
+const APPLE_TOUCH_ICON = '/assets/icons/icon-512.png';
+const FAVICON_32 = '/assets/icons/icon-512.png';
+const FAVICON_16 = '/assets/icons/icon-512.png';
+const BRAND_ICON = '/assets/icons/icon-512.png';
 const BRAND_LAUNCH = '/applied-intelligence-app/assets/brand/applied-intelligence-launch.svg';
 const BRAND_HAT_SET = '/applied-intelligence-app/assets/brand/applied-intelligence-hat-icon-set.svg';
 const LAUNCH_SESSION_KEY = 'applied-intelligence-brand-launch-v1';
@@ -176,7 +176,7 @@ function applyApprovedAppIcon() {
   favicon16.type = 'image/png';
 
   ensureLink('shortcut icon', FAVICON_32, null, 'image/png');
-  ensureLink('preload', BRAND_ICON, null, 'image/svg+xml').as = 'image';
+  ensureLink('preload', BRAND_ICON, null, 'image/png').as = 'image';
   ensureLink('preload', BRAND_LAUNCH, null, 'image/svg+xml').as = 'image';
 }
 

@@ -5,9 +5,9 @@ const APP_SHELL = [
   '/applied-intelligence-app/index.html',
   '/applied-intelligence-app/manifest.json',
   '/applied-intelligence-app/install.js',
-  '/assets/icons/favicon-16.png',
-  '/assets/icons/favicon-32.png',
-  '/assets/icons/apple-touch-icon.png',
+  '/assets/icons/icon-512.png',
+  '/assets/icons/icon-512.png',
+  '/assets/icons/icon-512.png',
   '/assets/icons/icon-192.png',
   '/assets/icons/icon-512.png',
 ];
