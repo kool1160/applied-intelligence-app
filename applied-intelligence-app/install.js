@@ -157,23 +157,11 @@ function applyApprovedVisualPass() {
   const topWrap = document.querySelector('.topWrap');
   if (topWrap) {
     topWrap.classList.add('ai-approved-header');
-    topWrap.querySelectorAll('.aiBrandMark, .aiHeaderLogo').forEach((mark, index) => {
-      if (index > 0 || mark.classList.contains('aiBrandMark')) mark.remove();
-    });
-
-    let logo = topWrap.querySelector('.aiHeaderLogo');
-    if (!logo) {
-      logo = document.createElement('img');
-      logo.className = 'aiHeaderLogo';
-      logo.alt = '';
-      logo.decoding = 'async';
-      topWrap.appendChild(logo);
-    }
-    logo.src = BRAND_ICON;
+    topWrap.querySelectorAll('.aiBrandMark, .aiHeaderLogo').forEach((mark) => mark.remove());
   }
 
   const subtitle = document.querySelector('.topWrap .sub');
-  if (subtitle) subtitle.textContent = 'Connected manufacturing intelligence.';
+  if (subtitle) subtitle.textContent = 'Standardize to Optimize.';
 
   document.querySelectorAll('.aiHeroMark').forEach((mark) => mark.remove());
 
