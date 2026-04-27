@@ -1,15 +1,13 @@
-const CACHE_NAME = 'applied-intelligence-v8-shell-2026-04-26-pr13-icon-path-cleanup';
+const CACHE_NAME = 'applied-intelligence-v8-shell-2026-04-27-approved-icon-lock';
 
 const APP_SHELL = [
   '/applied-intelligence-app/',
   '/applied-intelligence-app/index.html',
   '/applied-intelligence-app/manifest.json',
   '/applied-intelligence-app/install.js',
-  '/assets/icons/favicon-16.png',
-  '/assets/icons/favicon-32.png',
-  '/assets/icons/apple-touch-icon.png',
-  '/assets/icons/icon-192.png',
-  '/assets/icons/icon-512.png',
+  '/assets/brand/approved/applied-intelligence-apple-touch-icon.png',
+  '/assets/brand/approved/applied-intelligence-icon-192.png',
+  '/assets/brand/approved/applied-intelligence-icon-512.png',
 ];
 
 self.addEventListener('install', (event) => {

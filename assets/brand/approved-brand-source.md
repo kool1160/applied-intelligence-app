@@ -14,9 +14,9 @@ This document defines where **approved** Applied Intelligence app icon assets mu
 - `/assets/icons/apple-touch-icon.png` is **not approved as the final icon**.
 - No existing placeholder icon in `/assets/icons/` should be treated as approved brand source.
 
-## Reference lock rule
+## Reference lock status
 
-Do **not** lock or finalize icon references in any of the following until approved icon files exist in `/assets/brand/approved/`:
+Approved icon files now exist and reference lock is active for app/PWA/header icon usage in:
 
 - `index.html`
 - `manifest.json`
@@ -24,4 +24,11 @@ Do **not** lock or finalize icon references in any of the following until approv
 - `sw.js`
 - `applied-intelligence-app/sw.js`
 
-Preparation-only status: Approved icon files must be uploaded before reference lock can be completed.
+
+## Approved files (now present)
+
+- `/assets/brand/approved/applied-intelligence-icon-512.png`
+- `/assets/brand/approved/applied-intelligence-icon-192.png`
+- `/assets/brand/approved/applied-intelligence-apple-touch-icon.png`
+
+All future app icon references must use files under `/assets/brand/approved/`.

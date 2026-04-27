@@ -1,6 +1,6 @@
 const APP_BASE = '/applied-intelligence-app/';
 const SERVICE_WORKER_PATH = `${APP_BASE}sw.js`;
-const BRAND_ICON = '/assets/icons/icon-512.png';
+const BRAND_ICON = '/assets/brand/approved/applied-intelligence-icon-512.png';
 
 let deferredPrompt = null;
 
