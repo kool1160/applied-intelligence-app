@@ -1,21 +1,15 @@
 # Approved Brand Source
 
-The approved Applied Intelligence header/icon source is the production app icon asset:
+## Status (2026-04-27)
 
-```text
-/assets/icons/icon-512.png
-```
+The previously documented icon path (`/assets/icons/icon-512.png`) is **not approved**.
 
-Runtime UI references should point to the PNG icon asset instead of the generated SVG approximation.
+Chris confirmed the approved Applied Intelligence square icon is not yet verified in this repository.
 
-Do not use the old generated SVG approximation for the live header logo.
+### Temporary rule until approved asset is added
 
-Current approved header copy:
+- Do **not** treat `/assets/icons/icon-512.png` as source-of-truth branding.
+- Keep launch/lockup assets separate from square app-icon references.
+- Complete brand lock only after the approved square icon file is added and confirmed.
 
-```text
-APPLIED INTELLIGENCE ECOSYSTEM
-Applied Intelligence
-Connected manufacturing intelligence.
-```
-
-Splash screen remains on hold until the approved icon source is stable.
+- TODO: Once Chris's approved square icon is added, update manifest/icons + install/runtime + SW caches to that exact path.
