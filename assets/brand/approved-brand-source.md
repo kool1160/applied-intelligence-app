@@ -1,21 +1,27 @@
 # Approved Brand Source
 
-The approved Applied Intelligence header/icon source is the production app icon asset:
+This document defines where **approved** Applied Intelligence app icon assets must live and what is currently blocked.
 
-```text
-/assets/icons/icon-512.png
-```
+## Source of truth for approved square app icons
 
-Runtime UI references should point to the PNG icon asset instead of the generated SVG approximation.
+- Approved square app icon files must be uploaded under:
+  - `/assets/brand/approved/`
+- Treat files in this folder as the only candidate source for final, locked icon references.
 
-Do not use the old generated SVG approximation for the live header logo.
+## Not approved (do not treat as final)
 
-Current approved header copy:
+- `/assets/icons/icon-512.png` is **not approved**.
+- `/assets/icons/apple-touch-icon.png` is **not approved as the final icon**.
+- No existing placeholder icon in `/assets/icons/` should be treated as approved brand source.
 
-```text
-APPLIED INTELLIGENCE ECOSYSTEM
-Applied Intelligence
-Connected manufacturing intelligence.
-```
+## Reference lock rule
 
-Splash screen remains on hold until the approved icon source is stable.
+Do **not** lock or finalize icon references in any of the following until approved icon files exist in `/assets/brand/approved/`:
+
+- `index.html`
+- `manifest.json`
+- `install.js`
+- `sw.js`
+- `applied-intelligence-app/sw.js`
+
+Preparation-only status: Approved icon files must be uploaded before reference lock can be completed.
