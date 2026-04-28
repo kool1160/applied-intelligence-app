@@ -95,3 +95,7 @@ The current priority is no longer only shell polish. It is now focused on:
 - scenario-based runtime validation
 - internal update packaging readiness
 - continued app shell and wrapper-readiness improvement
+## Proof documentation
+
+- [AI-Connect Proof Test 001 — Passed](docs/ai-connect-proof-test-001.md)
+
