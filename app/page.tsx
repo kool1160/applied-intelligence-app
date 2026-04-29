@@ -9,6 +9,8 @@ type WocData = {
 };
 
 const initial: WocData = { workOrder:'', partNumber:'', revision:'', customer:'', quantity:'', dueDate:'', department:'', operation:'', process:'', currentListedRate:'', observedBaseline:'', setupTime:'', notes:'', issueType:'Incorrect Time', priority:'Medium', problemSummary:'', requestedAction:'' };
+const DEFAULT_TO_EMAIL = 'Christophertroyhilton@gmail.com';
+
 const checks = ['I confirm the work order number is correct.','I confirm the part number is correct.','I confirm the operation/process is correct.','I confirm the issue and requested correction are accurate.','I confirm the email draft is ready to send.'];
 
 export default function Page() {
@@ -22,7 +24,7 @@ export default function Page() {
 
   const report = useMemo(()=>`ENGINEERING WORK ORDER CORRECTION REPORT\n\nTitle:\n${data.workOrder} / ${data.partNumber} – ${data.issueType} Correction Request\n\nCorrection Type:\n${data.issueType}\n\nPriority:\n${data.priority}\n\nPart / Work Order Information:\nWork Order Number:\n${data.workOrder}\n\nPart Number:\n${data.partNumber}\n\nRevision:\n${data.revision}\n\nCustomer:\n${data.customer}\n\nQuantity:\n${data.quantity}\n\nDepartment:\n${data.department}\n\nOperation / Router Step:\n${data.operation}\n\nProcess:\n${data.process}\n\nCurrent Work Order Condition:\n${data.currentListedRate || data.notes}\n\nObserved Problem:\n${data.problemSummary}\n\nCorrected / Requested Information:\n${data.requestedAction}\n\nTime Correction Details:\nCurrent Listed Rate:\n${data.currentListedRate}\n\nObserved Sustainable Baseline:\n${data.observedBaseline}\n\nRecommended Engineering Baseline:\n${data.observedBaseline}, pending Engineering review\n\nReason for Correction:\nThe current listed rate creates an unrealistic production expectation. Based on shop-floor observation, the observed sustainable baseline is more balanced and realistic for this operation.\n\nEvidence / Basis for Correction:\nThe work order router identifies the affected operation. Shop-floor review identified the current listed rate or information as inaccurate, missing, or not sustainable.\n\nRisk if Not Corrected:\nIf the work order information is not corrected, scheduling, labor planning, costing, and production expectations may continue to be based on inaccurate data.\n\nRequested Engineering Action:\n${data.requestedAction}\n\nSubmitted By:\nChris\n\nDate:\n${today}`,[data,today]);
 
-  const email = useMemo(()=>`To:\nChristophertroyhilton@gmail.com\n\nSubject:\nWork Order Correction Request – ${data.workOrder} / ${data.partNumber} – ${data.issueType}\n\nBody:\nEngineering Team,\n\nPlease review the work order correction request for the following:\n\nWork Order:\n${data.workOrder}\n\nPart Number:\n${data.partNumber}\n\nRevision:\n${data.revision}\n\nCustomer:\n${data.customer}\n\nOperation:\n${data.operation} – ${data.process}\n\nIssue Summary:\n${data.problemSummary}\n\nCurrent Listed Condition:\n${data.currentListedRate || data.notes}\n\nObserved Sustainable Baseline / Corrected Information:\n${data.observedBaseline}\n\nRequested Correction:\n${data.requestedAction}\n\nReason for Request:\nThe current work order information creates an inaccurate production expectation and may affect scheduling, labor planning, costing, or production flow if left unchanged.\n\nPriority:\n${data.priority}\n\nThank you,\n\nChris`,[data]);
+  const email = useMemo(()=>`To:\n${DEFAULT_TO_EMAIL}\n\nSubject:\nWork Order Correction Request – ${data.workOrder} / ${data.partNumber} – ${data.issueType}\n\nBody:\nEngineering Team,\n\nPlease review the work order correction request for the following:\n\nWork Order:\n${data.workOrder}\n\nPart Number:\n${data.partNumber}\n\nRevision:\n${data.revision}\n\nCustomer:\n${data.customer}\n\nOperation:\n${data.operation} – ${data.process}\n\nIssue Summary:\n${data.problemSummary}\n\nCurrent Listed Condition:\n${data.currentListedRate || data.notes}\n\nObserved Sustainable Baseline / Corrected Information:\n${data.observedBaseline}\n\nRequested Correction:\n${data.requestedAction}\n\nReason for Request:\nThe current work order information creates an inaccurate production expectation and may affect scheduling, labor planning, costing, or production flow if left unchanged.\n\nPriority:\n${data.priority}\n\nThank you,\n\nChris`,[data]);
 
   const set = (k:keyof WocData,v:string)=>setData(d=>({...d,[k]:v}));
   const copy = async (text:string)=> navigator.clipboard.writeText(text);
@@ -30,7 +32,7 @@ export default function Page() {
 
   async function send(){
     setSending(true);setMsg('');
-    const res = await fetch('/api/send',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({recipient:'Christophertroyhilton@gmail.com',subject:`Work Order Correction Request – ${data.workOrder} / ${data.partNumber} – ${data.issueType}`,emailBody:email,reportBody:report})});
+    const res = await fetch('/api/send',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({recipient:DEFAULT_TO_EMAIL,subject:`Work Order Correction Request – ${data.workOrder} / ${data.partNumber} – ${data.issueType}`,emailBody:email,reportBody:report})});
     const out = await res.json();
     setMsg(out.error || 'Email sent successfully.');
     setSending(false);
