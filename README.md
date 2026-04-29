@@ -1,101 +1,48 @@
-# Applied Intelligence App
+# AI-WOC Lite (Applied Intelligence AI-WOC)
 
-Applied Intelligence is an iPad-first web app for manufacturing workflow, traceability, continuous improvement, coordination, and analytics.
+Mobile-first MVP for shop-floor work order correction requests.
 
-This repository is the working app shell for Home, AI-Trace, AI-CIS, Dashboard, Analytics, and More/Admin, with the current runtime direction expanding into controlled execution flow and work-linked communication.
+## Features
+- Capture screen with image upload preview and manual entry path
+- Full manual work-order + issue entry
+- Built-in **Load Sample WOC** test data
+- Generates:
+  - Engineering Work Order Correction Report
+  - Engineering email draft
+- Confirmation checklist gate before sending
+- Copy report and copy email actions
+- Server-side `/api/send` route using Resend
 
-## Current direction
+## Setup
+1. Install dependencies:
+   ```bash
+   npm install
+   ```
+2. Create `.env.local` from `.env.example` and fill values:
+   - `RESEND_API_KEY`
+   - `AI_WOC_FROM_EMAIL`
+   - `AI_WOC_DEFAULT_TO_EMAIL` (defaults to Christophertroyhilton@gmail.com)
+3. Run dev server:
+   ```bash
+   npm run dev
+   ```
 
-The current build is being treated as:
+## Build
+```bash
+npm run build
+```
 
-- an iPad-first flagship experience
-- an iPhone scaled-down support experience
-- a web app now that is wrapper-ready later
+## API
+`POST /api/send`
 
-The app is no longer being treated as only a visual shell. The current runtime direction is centered on a governing execution model beneath AI-Connect and work-linked communication attached to real execution objects.
+JSON body:
+```json
+{
+  "recipient": "Christophertroyhilton@gmail.com",
+  "subject": "Work Order Correction Request – ...",
+  "emailBody": "...",
+  "reportBody": "..."
+}
+```
 
-## Runtime direction
-
-Current working runtime chain:
-
-**AI-Connect → AI-CIS → AI-Case / AI-ROI → Execution Spine → Work-Linked Thread Layer**
-
-Working interpretation:
-
-- **Execution object** = controlled work record
-- **Work-linked thread** = communication layer attached to that work record
-
-Important direction rule:
-
-Execution Spine must not become a detached parallel system.
-It is the governing execution model underneath existing AI-Connect behavior.
-
-## Lane alignment
-
-The current lane interpretation is:
-
-- **My Work** = execution objects I own
-- **Alerts** = execution objects needing attention
-- **Handoffs** = execution objects changing owner or department
-- **Threads** = communication attached to live execution objects
-- **Meetings** = execution objects requiring alignment, prep, or review
-
-## Visual direction
-
-- Dark navy premium foundation
-- Rounded card system
-- Restrained glow
-- Liquid-glass and translucent chrome direction
-- Premium spacing and hierarchy
-- App feel over website feel
-
-## Primary goals
-
-- Make shop-floor issues visible
-- Support structured trace capture
-- Connect trace to improvement workflows
-- Provide strong dashboard and analytics views
-- Add controlled execution flow beneath coordination
-- Keep communication tied to real work, ownership, and action
-- Keep the shell clean, premium, and system-driven
-
-## Current active build priorities
-
-- Strengthen Execution Spine as the governing execution model
-- Keep work-linked thread behavior derived from execution objects
-- Validate lifecycle, ownership, handoff, thread, and sync behavior through structured scenario testing
-- Package the next meaningful internal update around the runtime that passes validation
-- Improve wrapper-readiness without breaking the current web-app shell
-
-## Core files
-
-- `index.html`
-- `manifest.json`
-- `install.js`
-- `sw.js`
-- `assets/icons/`
-- `CHANGELOG.md`
-- `docs/`
-
-## Working principle
-
-Build the product first.
-
-Now: strong iPad-first web app.
-Later: native Apple wrapper or hybrid shell if needed.
-
-## Status
-
-This repo is in active iteration.
-
-The current priority is no longer only shell polish. It is now focused on:
-
-- execution runtime behavior
-- work-linked communication behavior
-- scenario-based runtime validation
-- internal update packaging readiness
-- continued app shell and wrapper-readiness improvement
-## Proof documentation
-
-- [AI-Connect Proof Test 001 — Passed](docs/ai-connect-proof-test-001.md)
-
+Validates required fields and sends with Resend. The correction report is appended below the email body with a clear divider.
